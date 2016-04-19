@@ -1,0 +1,84 @@
+<template name= "quizzQA">
+	<div class="container">
+        <div class="row">
+	        <div class="col-lg-12">
+	      <!--   <h1>Select quizz</h1>
+	        	<h1>{{name}}</h1> -->
+	        	{{countQuestion _id}}
+	        </div>
+        	<div class="col-lg-12">
+        		<section class="bg_home">
+					<div class="container">
+						<div class="quick_view">
+						<!-- Trigger the modal with a button -->
+						  <button type="button" class="btn btn-default center-block" data-toggle="modal" data-target="#quizz" id="quizzpop"></button>
+						  <!-- Modal -->
+						  <div class="modal" id="quizz" role="dialog">
+							<div class="modal-dialog modal-lg">
+				
+					  <!-- Modal content-->
+					  <div class="modal-content">
+						<div class="modal-header">
+						  <button type="button" class="close" data-dismiss="modal"><img src="/images/pop_cancel.png"></button>	  
+						</div> 
+						<div class="clearfix"></div>
+							<div class="modal-content1 bg-popup2">
+							<div class="modal-header">
+								<div class="header-popup">
+									<div class="col-xs-4 col-md-4">
+										<img src="/images/quiz_safir.png" class="logo1 img-responsive">
+									</div>
+									<div class="col-xs-4 col-md-4">
+										<img src="/images/3sum-icons.png" class="logo-3icon center-block img-responsive">
+									</div>
+									<div class="col-xs-4 col-md-4">
+										<h2 class="write text-right">{{type}}</h2>
+									</div>
+								</div>
+							</div>
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-8 col-md-offset-2">
+										{{#with getFirstQu question}}
+										<div class="section1-question">
+											<div class="col-md-12">
+												<p class="question text-center" data-tag="{{parent_tag}}">{{question}}</p>
+											</div>
+										</div>
+										<div class="answer-radia">
+										{{#each answers}}
+											<div class="col-md-12 col-md-offset-1">
+												<label class="radio">
+													<input id="radio1" value="{{value}}" data-tag="{{tag}}" type="radio" name="checkbox" checked="">
+													<span class="outer">
+														<span class="inner"></span>
+													</span>{{value}}
+												</label>
+											</div>
+											{{/each}}
+										</div>
+
+										<!-- <div class="section3"> -->
+											<div class="row">
+												<div class="col-md-6 col-md-offset-3">
+													<button class="btn-block btn-Begins pull-right" id="goNext" type="button">Submit </button>
+												</div>
+											
+											</div>
+										<!-- </div> -->
+										{{/with}}
+									</div>
+								</div>
+							</div>
+						</div>
+				
+					  </div>					  
+					</div>
+						  </div><!--/ end model -->
+						</div>
+					</div>
+				</section>
+        	</div>
+        </div>
+    </div>
+</template>

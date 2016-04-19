@@ -1,0 +1,192 @@
+<template name="suggestpages">
+<style type="text/css">
+    .btn-redo-quiz {
+          -moz-user-select: none;
+          background: rgb(255, 221, 234) none repeat scroll 0px 0px;
+          border: 2px solid rgb(255, 255, 255);
+          border-radius: 5px;
+          color: rgb(54, 54, 57);
+          display: inline-block;
+          font-family: Arial,Helvetica,sans-serif;
+          font-size: 0.8em;
+          font-weight: 700;
+          line-height: 1;
+          padding: 5px;
+          text-align: center;
+          margin-right: 22px;
+          float: right;
+          overflow: auto;
+          position: absolute;
+          right: 0px;
+          bottom: 0px;
+          }
+          .quiz-redo{
+          background: transparent url("/../images/suggest.png") no-repeat scroll 0% 0% / 100% 100%;
+          height: 240px;
+          }
+          .wrapper-first-con .well-suggest .text-earn {
+          font-size: 25px;
+          color: #fff;
+          padding-left: 20px;
+          }
+
+</style>
+ <div class="main-wrapper">
+  <section class="wrapper-first-con">
+    <div class="container">
+     <div class="col-md-12">
+      
+      <div class="space-top" style="margin-top:30px;">
+        <div class="col-md-3">
+          <div class="well-profile">
+            <div class="">
+              {{#with getprofile}}
+              <img src="{{getImg image}}" class="img-responsibve" width="100%">
+              {{/with}}
+            </div>
+
+            <div class="hover-profile">
+              <ul class="text-center">
+                <li><a href="/profile">{{_"PROFILE"}}</a></li>
+                <li><a href="/member">{{_"MEMBER DETAIL"}}</a></li>
+                <li><a href="/reward">{{_"REWARDS"}}</a></li>
+                <li><a href="/quiz">{{_"QUIZ AFFINITY"}}</a></li>
+              </ul>
+            </div>
+            <div class="text-center">
+              <h1 class="h1">{{#with getprofile}}{{profile.shipcard.point}} {{/with}} {{_ "Points"}}</h1>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-9">
+         <div class="wapper-member-title">
+           <h1 class="sug-pro">{{_ "QUIZ AFFINITY"}} <span class="fa fa-caret-right"></span> {{quizz.name}}</h1>
+           <p class="sug-text">{{_ "Suggested products for"}} {{quizz.name}}</p>
+         </div>
+         
+         <div class="wapper-member">
+           <!-- <div class="col-md-12">
+             <img src="/images/suggest.png"  class="img-responsive" height="238">
+           </div> -->
+           <div class="quiz-redo">
+               <button class="btn-redo-quiz">Redo the quiz</button>
+            </div>
+           <!-- <div class="col-md-6">
+             <p class="quiz-description"> {{_ "Result from your answers are listed here."}}</p>
+           </div> -->
+         </div>
+       </div>
+     </div>
+     
+
+     <div class="col-md-12">
+      <div class="well-suggest">
+        <h2 class="text-earn">{{_ "Suggest Tutorials"}}</h2>
+      </div>
+    </div>
+
+    
+    <div class="col-md-12 space-suggest-md" style="padding-bottom: 25px;">
+      {{#each getDataTuto}}
+      <div class="col-md-4 shadow_bottom">
+        <h4 class="h4-bold-tuto-1 center">{{smaller title 6}}</h4>
+        <!-- <img src="/images/img-vdo.png" class="img-responsive"> -->
+        
+        {{#each image}}
+        <a href="/tutodetails/{{_id}}">
+          <img src="{{getImg this}}" class="img-responsive space-img" style="width:350px; height:150px"></a>
+          {{/each}}
+          
+          <div class="share-control1">
+            <div class="col-sm-5">
+             <!-- <a href=""><p class="txt-tuto-sm2"><i class="fa fa-share-alt">&nbsp; &nbsp;</i>Partager</p> </a> -->
+           </div>
+           <div class="col-sm-7">
+            <!--  <p class="txt-tuto-sm3"><i class="fa fa-heart-o">&nbsp;</i>132 personnent</p> -->
+          </div> 
+        </div> 
+        <div class="col-md-12 row share-control1">
+          <p class="p-font-sm-1">{{{trimString content}}}</p>
+        </div>
+      </div>
+      {{/each}}
+
+    </div>
+    
+
+    <div class="col-md-12 space-top-suggest">
+      <div class="well-suggest">
+        <h2 class="text-earn">{{_ "RELATED PRODUCTS"}}</h2>
+      </div>
+    </div>
+
+    
+    <div class="col-md-12 space-suggest-md">
+      <div class="row">
+        {{#each testerproduct}} 
+        <div class="col-md-3">
+          <div class="items_suggestion">
+            <a href="/details/{{slug title}}" title="{{title}}">
+              <img src="{{getImgForProduct _id}}" style="width:150px; height:150px;" class="img-responsive" alt="{{title}}">
+            </a>
+            <a href="/details/{{slug title}}" style="color:black" class="title">{{smaller title 5}}</a>
+            
+            <div class="col-sm-6">
+              <h3 class="text-center">{{price}}</h3>
+            </div>
+            <div class="col-sm-6">
+              <a href="#" class="unlike unlike{{_id}}" data-id="{{_id}}"><span  class="fa fa-heart-o fonfa" style="color:black"></span></a>
+              <a href="#"  class="like nonelike like{{_id}}" data-id="{{_id}}"><span style="color:red" class="fa fa-heart  fonfa"></span></a>
+            </div>
+            
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+
+
+
+  </div> 
+</div>    
+</section>
+
+
+</div><!--/main-wrapper-->
+
+<script>
+$(document).ready(function(){
+  $(".search-push-left").hide();
+  var isOn = true;
+  $(function(){
+   $("#btn-all").click(function(){
+    console.log(isOn);
+    if ( isOn ){
+      isOn = false;
+      $('.search').css("width", '45%');
+      $(".search-push-left").hide();
+    } else {
+      isOn = true;
+      $('.search').css("width", '72%');
+      $(".search-push-left").show();
+    }
+    return false;
+  });
+ });
+});
+</script>
+<script>
+$(document).ready(function($){
+  $('.megamenu').megaMenuCompleteSet({
+              menu_speed_show : 300, // Time (in milliseconds) to show a drop down
+              menu_speed_hide : 200, // Time (in milliseconds) to hide a drop down
+              menu_speed_delay : 200, // Time (in milliseconds) before showing a drop down
+              menu_effect : 'hover_fade', // Drop down effect, choose between 'hover_fade', 'hover_slide', etc.
+              menu_click_outside : 1, // Clicks outside the drop down close it (1 = true, 0 = false)
+              menu_show_onload : 0, // Drop down to show on page load (type the number of the drop down, 0 for none)
+              menu_responsive:1 // 1 = Responsive, 0 = Not responsive
+            });
+});
+</script>
+</template>

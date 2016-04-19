@@ -1,0 +1,164 @@
+<template name="searchproduct">
+	{{#if displayproduct}}
+	<div class="container">
+		<div class="col-md-12">
+			<div class="hold_result">
+				<h1>{{_"Products"}}</h1><br>
+				<p>{{nbproducts}}/{{dataCount}} {{_"Products result"}}</p>
+			</div>
+			<div class="hold_bradcame">
+				<a href="#" class="pull-left green">{{_"Best selling"}} <span class="fa fa-caret-right"></span></a>
+			</div>
+
+			<div class="hold_product">
+				
+				{{#each product}}
+
+				<div class="col-xs-6 col-md-3 product_item">
+					<div class="thumbnail text-left">
+
+						<div class="caption" style="position: absolute;margin-top: 80px;margin-left: 55px;">
+							<div class="btn#e4332a">
+								<a href="#" class="label label-danger" id="quickbtn" rel="tooltip" data-toggle="modal" data-target="#quickView">{{_"Quickview"}}</a>
+							</div>                    
+						</div>
+
+						<div class="clearfix" style="width: 100%; margin-bottom:2px; height:150px; text-align:center">
+							<a href="/details/{{slug title}}" title="{{title}}">
+								<img src="{{getImgForProduct _id}}" style="width:150px; height:150px;" class="img-responsive img-circle" alt="{{title}}">
+							</a>
+						</div>
+
+						<div class="clearfix" style="width: 100%;overflow:hidden;text-align: center; height:70px;">
+							<a href="/details/{{slug title}}" class="title">{{smaller title 4}}</a>
+						</div>
+						<div class="clearfix text-center" style="width: 100%; height: 30px; overflow: hidden; margin-top:-15px;">
+							<a href="/details/{{slug title}}" class="price{{oldId}}" style="padding-bottom:20px;" >
+							{{getAttribprice oldId}}
+							</a>
+
+							<a href="#" id="unlike"><span id="unlike{{_id}}" class="fa fa-heart-o fonfa"></span></a>
+							<a href="#" id="like" style="color:red;"><span id="like{{_id}}" class="fa fa-heart nonelike fonfa"></span></a>
+							
+						</div>
+
+					</div>
+				</div>
+				{{/each}}
+			</div>
+		</div>		
+	</div>
+	{{else}}
+		<h3 style="text-align:center">{{_"No Product result"}}</h3>
+	{{/if}}
+
+	{{#if displayContent}}
+	<div class="container">
+		<div class="col-md-12">
+			<div class="hold_result">
+				<h1>{{_"Contents"}}</h1>
+				<p>{{nbcontents}} {{_"Contents results"}}</p>
+			</div>
+
+			<div class="hold_product">
+				{{#each content}}
+				<div class="container">
+					<div class="row spacetop-webzine style_featured">
+						<div class="col-lg-12 wrapper-lg-border">
+							<h2 class="text-center bold"><a href="#" class="title" style="color:black;">{{title}}</a></h2>
+							<div class="col-md-6">
+								<a href="/webzinedetails/{{slug title}}">
+									{{#with getFirstImgContent _id}}
+									<img src="{{getImg this}}" class="img-responsive img-circle center-block" style="width:350px; height:350px;">
+									{{/with}}	
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+	{{/if}}
+
+	<!-- quickview -->
+	<div class="modal" id="quickView" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-top:30px;">
+		{{#each getSelectedProduct}}
+		{{#with this}}
+		<div class="modal-dialog" role="document">
+			<div class="modal-content" style="width: 150%; margin: 0px 0px 0px -150px !important;">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header" style="background:#000; padding:0px;" >
+						<button type="button" class="close" data-dismiss="modal"><img src="/images/pop_cancel.png"></button>
+					</div>
+					
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-md-5">
+								<img  src="{{getImgForProduct _id}}" style="width:150px; height:150px;" class="center-block">
+							</div>
+							<div class="col-md-7">
+								<div class="quick-detail">
+									<h2 class="title-quick-view">{{title}}</h2>
+									<p class="arab-font"> {{{description}}} </p>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<span>Qty</span> &nbsp;
+										<select class="select-view" id="qty">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+										</select>
+									</div>
+									<div class="col-md-6">
+										<a id="closeModal" href="/details/{{slug title}}"><button class="btn-moredetail-view left">{{_"MORE DETAIL"}}</button></a>
+									</div>
+
+									<div class="col-md-6">
+
+										<h3 class="price{{oldId}}" style="font-family: 'Nazanin Bold'; color:#000;">{{getAttribprice oldId}}</h3>
+
+									</div>
+									<div class="col-md-6">
+										<button class="btn-add-tocard left" id="addtocart">{{_"ADD TO CARD"}}</button>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+						<div class="col-md-12">
+							<hr style="border:1px solid #000;">
+						</div>
+					</div>
+					<div class="modal-footer center-block" style="border:none">
+						<div class="col-md-12">
+							<h4 class="pull-left">{{_"Related products"}}</h4>
+						</div>
+						
+						<div class="row">
+							<ul class="list-inline">
+								<li width="100"><a href="">
+									<div class="hold_product_detail">
+										<div class="row"></div> 
+										{{>recommendation}}
+									</div>
+								</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+		{{/with}}
+		{{/each}}
+		<script>
+			$('.modal-backdrop').remove();
+		</script>
+	</div>
+
+
+</template>

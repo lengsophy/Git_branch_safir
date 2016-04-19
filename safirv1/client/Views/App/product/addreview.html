@@ -1,0 +1,99 @@
+<template name="addreview">
+	<style type="text/css">
+		div.stars {
+  width: 270px;
+  display: inline-block;
+}
+
+input.star { display: none; }
+
+label.star {
+  float: right;
+  padding: 10px;
+  font-size: 36px;
+  color: #444;
+  transition: all .2s;
+}
+
+input.star:checked ~ label.star:before {
+  content: '\f005';
+  color: #FD4;
+  transition: all .25s;
+}
+
+input.star-5:checked ~ label.star:before {
+  color: #FE7;
+  text-shadow: 0 0 20px #952;
+}
+
+input.star-1:checked ~ label.star:before { color: #F62; }
+
+label.star:hover { transform: rotate(-15deg) scale(1.3); }
+
+label.star:before {
+  content: '\f006';
+  font-family: FontAwesome;
+}
+
+	</style>
+	<div id="add_review">
+		<div class="hwrite_comments">
+			<form id="form">
+				<div class="row">
+					<div class="col-md-2">
+						<img src="{{getImg currentUser.image}}" class="img-responsive center-block" style="width: 50%;">
+						<h4 class="bold text-center">{{currentUser.profile.firstname}} {{currentUser.profile.lastname}}</h4>
+					</div>
+					<div class="col-md-10">
+						<input id="title" type="text" class="form-control" placeholder="{{_"Your title here"}}..." style="background:  #e6e6e6;border-radius: 5px;" required/>
+						<textarea class="form-control" rows="3" id="comment" placeholder="{{_"Write your review"}}..." style="background:  #e6e6e6;border-radius: 5px;"  required></textarea>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2 pull-left">
+						<form role="form">
+							<div class="form-group select_grade">
+								<div class="star">
+					
+									<div class="col-xs-2 rate-star">
+										<i class="fa fa-star fa-lg" data-star="1"></i>
+									</div>
+									<div class="col-xs-2 rate-star">
+										<i class="fa fa-star fa-lg" data-star="2"></i>
+									</div>
+									<div class="col-xs-2 rate-star">
+										<i class="fa fa-star fa-lg" data-star="3"></i>
+									</div>
+									<div class="col-xs-2 rate-star">
+										<i class="fa fa-star fa-lg" data-star="4"></i>
+									</div>
+									<div class="col-xs-2 rate-star">
+										<i class="fa fa-star fa-lg" data-star="5"></i>
+									</div>
+								</div>
+  
+							</div>
+						</form>
+					</div>	
+					<div class="col-md-5 pull-right">
+						<input type="submit" value="{{_'SEND'}}" class="pull-right btn btn_send" id="addreview" data-toggle="modal" data-target="#myModaltuto" style="margin-bottom:1px;margin-left: 20%;border-radius:0px; width: 30%;" >
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(".toggle-wrap").hide();
+			$(".toggle-trigger").click(function() {
+				$(this).parent().parent().parent().parent().parent().nextAll('.toggle-wrap').first().toggle('');
+			});
+		});
+	</script>
+
+
+</template>
+
+

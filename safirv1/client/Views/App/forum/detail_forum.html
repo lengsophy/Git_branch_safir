@@ -1,0 +1,104 @@
+
+<template name="forumDetail">
+    <section class="furom3">
+        <div class="container"> {{> navforum}}</div>
+        <div class="hr-forum">
+            <div class="container">
+
+                <div class="row">
+
+                    <h3 class="title-forum3">MAKEUP DISCUSSION</h3>
+                    <div class="col-lg-9 col-lg-offset-1">
+                        <div class="col-lg-8">
+                            <p>MAKEUP / WEEKLY COLOR CHALLENGE!</p>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="row">
+                                <a href="#form"><button class="btn-reply pull-right"  id="reply">Reply</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-lg-offset-1">
+                        <div class="main-forum3">
+                            <ul>
+                                <li>
+                                    <div class="col-lg-2">
+
+                                        {{#with getprofile this.userId topic category _id date}}
+                                             {{#if status}}
+                                                <img src="{{getImg imageId}}" class="img-circle center-block img-responsive" alt="Avatar" width="50" height="50">
+                                              
+                                            {{else}}
+                                                 <img src="/uploads/user.png" class="img-circle center-block img-responsive" alt="Avatar" width="50" height="50">
+                                            {{/if}}
+                                          
+                                       
+                                            <p class="text-center name text-form3">{{name}}</p>
+                                            <p class="text-center text-form3">{{> timeago convertMsTimeStamp info.date}}</p>
+                                
+                                        {{/with}}
+                                    </div>
+                                    <div class="col-lg-10">
+                                        <div class="text-com">
+                                            <h4 class="title-com">{{topic}}</h4>
+                                            <p class="par-com">{{getCateName category}}</p>
+                                            <p class="com-forum3">{{description}}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                {{#each listReply}}
+                                <li>
+                                    {{#with getprofile userId top category _id date description}}
+                                    <div class="col-lg-2">
+                                        
+                                             {{#if status}}
+                                                <img src="{{getImg imageId}}" class="img-circle center-block img-responsive" alt="Avatar" width="50" height="50">
+                                              
+                                            {{else}}
+                                                 <img src="/uploads/user.png" class="img-circle center-block img-responsive" alt="Avatar" width="50" height="50">
+                                            {{/if}}
+                                         
+                                        
+                                            <p class="text-center third-name text-form3">{{name}}</p>
+                                    
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="text-com">
+                                            <p class="name-com">{{info.description}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <p class="pull-right likes-forum3"><!--<a href=""><i class="fa fa-heart-o name"></i></a>--> <span class="name">{{> timeago getHumanTime info.date}}</span></p>
+                                    </div>
+                                     {{/with}}
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <p class="reply" id="reply">ADD YOUR REPLY <img src="/img/a-icon.png" class="a-icon"></p>
+                    </div>
+                    <div class="col-lg-9 col-lg-offset-1" id="form">
+                        <div class="main-forum3">
+                            <div class="col-lg-2">
+                                <img src="{{getImg currentUser.image}}" class="img-circle center-block img-responsive">
+                                    <p class="text-center name text-form3">{{currentUser.profile.firstname}} {{currentUser.profile.lastname}}</p>
+                            </div>
+                            <div class="col-lg-10">
+                                <textarea class="form-control textarea-com" rows="8" required name="description" id="description"></textarea>
+                            </div>
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <a href=""><img src="/img/a.png"></a>
+                                <a href=""><img src="/img/attact.png" class="attact-file"></a>
+                            </div>
+                            <div class="col-lg-2">
+                                <div class="row">
+                                    <button class="btn send pull-right">SEND</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>

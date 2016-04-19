@@ -1,0 +1,346 @@
+<template name="fav">
+<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+<script src="http://snapwidget.com/js/snapwidget.js"></script>
+	<style>
+		.zoom {
+			display:inline-block;
+			position: relative;
+		}
+		/* magnifying glass icon */
+		.zoom img {
+			display: block;
+		}
+		.zoom img::selection { background-color: transparent; }
+		#ex2 img:hover { cursor: url(grab.cur), default; }
+		#ex2 img:active { cursor: url(grabbed.cur), default; }
+	</style>
+	<section class="main-refine-menu">
+			<div class="container">
+			 <div class="img-banner">
+		     	{{#each getimagebanner}}
+				 <img src="{{getImg imageId}}" class="img-responsive" width="1027" height="280">
+		     	{{/each}}
+			 </div><br>
+				<div style="background:#ccc; height:50px; overflow:hidden; margin-bottom:30px;">
+					{{> myrefine category}}
+				</div>
+				<div class="hold_result">
+					<p dir="{{getDirection}}">{{nbproducts}}/{{totalProducts}}{{_ "products result"}}</p>
+				</div>
+				 <div class="hold_bradcame">
+                   	<!--<a id="bestSelling" class="" href="#" style="text-decoration:none;">
+                     &nbsp;{{_ "Best selling"}}</a>
+                    <a id="name" class="reward-sell" href="#" style="text-decoration:none;">
+                     &nbsp;&nbsp;&nbsp;{{_ "Sort Name"}} </a>
+                    <a id="price" class="reward-sell" href="#" style="text-decoration:none;">
+                      &nbsp;&nbsp;&nbsp;{{_ "Sort Price"}}
+                    </a>-->
+                </div>
+					<section class="bg_home">
+							<div class="container">
+								<div class="row">
+									<div class="wrapper-first-con">
+									  <div class="container">
+										<div class="col-md-12">
+										  <div class="space-top">
+										  {{#each products}}
+											
+											  {{{favoriteProducts _id title price}}}
+											   <!--<li class="col-md-9">
+												   <p>
+													{{#each getParentAttr oldId}}
+														{{#with getParentDetails parent}}
+														{{name}} : <p><i id="current_attr"> </i></p>
+														{{/with}}
+													{{/each}}
+													</p>
+													<div class="deatil-favo pull-right">
+												   		<a href="/checkout"><button class="btn profile-black" type="button" stype="color:red">ADD TO CART</button></a>
+													</div> 
+												</li>-->
+											
+											{{/each}}
+										  </div>
+										</div>
+										<br>
+										<span style="padding: 30px"></span>
+										<h1 class="text-center h1">PINTEREST</h1>
+										<div class="">
+											<div class="col-sm-12 text-center">	
+											<!-- <div style="border:1px solid #ccc; height:200px"> -->
+												<a data-pin-do="embedUser" data-pin-board-width="860" data-pin-scale-height="240" data-pin-scale-width="115" href="https://www.pinterest.com/safirperfumery/safir-favorite-looks/"></a>
+												<!-- </div>	 -->
+											</div>
+										</div>
+										<br>
+										<span style="padding: 30px"></span>
+										<h1 class="text-center h1">INSTAGRAM</h1>
+										<div class="">
+											<div class="col-sm-12 text-center">
+												<iframe src="http://snapwidget.com/in/?u=c2FmaXJzdG9yZXN8aW58ODB8OHwzfDNkMzkzZHx5ZXN8MTB8bm9uZXxvblN0YXJ0fHllc3x5ZXM=&ve=070416" title="Instagram Widget" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%;"></iframe>
+												
+											</div>
+										</div>
+									  </div> 
+								   </div>
+								</div>
+							</div>
+							<br>
+						<span style="padding: 30px"></span>
+						</section>
+					</div>
+		</section>
+	<div class="modal" id="quickView" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-top:30px;">
+		{{#each getSelectedProduct}}
+		{{#with this}}
+		<div class="modal-dialog" role="document">
+			<div class="modal-content" style="width: 150%; margin: 0px 0px 0px -150px !important;">
+					  <div class="modal-content">
+						<div class="modal-header" style="background:#000; padding:0px;" >
+						  <button type="button" class="close" data-dismiss="modal"><img src="/images/pop_cancel.png"></button>
+						</div>
+						
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-md-5">
+									<span class='zoom' id='ex1'>
+										<img id="hoverZoom" width="250" height="250" class="img_principle" src="{{getImgForProduct _id}}" alt="{{title}}"/>		
+									</span>	
+									<script>
+										$(document).ready(function(){
+											$('#ex1').zoom('{{getFirstImgProduct _id}}');
+											$('#ex2').zoom({ on:'grab' });
+											$('#ex3').zoom({ on:'click' });			 
+											$('#ex4').zoom({ on:'toggle' });
+										});
+									</script>
+								</div>
+								<div class="col-md-7">
+									<div class="quick-detail">
+										<h2 class="title-quick-view">{{title}}</h2>
+										<p class="arab-font">{{{description}}}</p>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<span>Qty</span> &nbsp;
+											<select class="select-view" id="qty">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											</select>
+										</div>
+										<div class="col-md-6">
+	                                      <a href="/details/{{slug title}}"><button class="btn-moredetail-view left">{{_"MORE DETAIL"}}</button></a>
+										</div>
+
+										<div class="col-md-6">
+											  <a href="/details/{{slug title}}" style="font-weight:bold;color:#000;" class="price{{oldId}}">
+									            <h3 style="font-weight:bold;color:#000;">{{getAttribprice oldId}}</h3>
+									          </a>
+										</div>
+										<div class="col-md-6">
+	                                       <button class="btn-add-tocard left" id="addtocart">{{_ "ADD TO CARD"}}</button>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+							<div class="col-md-12">
+							   <hr style="border:1px solid #000;">
+							</div>
+						</div>
+
+						<div class="modal-footer center-block" style="border:none">
+							<div class="col-md-12">
+                               <h4 class="pull-left">Related products</h4>
+							</div>
+							
+							<div class="row">
+								<ul class="list-inline">
+									<li width="100"><a href="">
+											<div class="hold_product_detail">
+											<div class="row"></div> 
+											{{>recommendation}}
+										</div>
+									</a></li>
+								</ul>
+							</div>
+						</div>
+					  </div>	
+					</div>
+					</div>
+					{{/with}}
+					{{/each}}
+					<script>
+					$('.modal-backdrop').remove();
+					</script>
+				</div>
+</template>
+
+<!-- <template name="listproducts">
+		<style>
+		.zoom {
+			display:inline-block;
+			position: relative;
+		}
+		/* magnifying glass icon */
+		.zoom img {
+			display: block;
+		}
+		.zoom img::selection { background-color: transparent; }
+		#ex2 img:hover { cursor: url(grab.cur), default; }
+		#ex2 img:active { cursor: url(grabbed.cur), default; }
+	</style> -->
+	<!--  <div class="container contain-top">
+     <div class="img-banner">
+     	{{#each getimagebanner}}
+		 <img src="{{getImg imageId}}" class="img-responsive" width="1027" height="280">
+     	{{/each}}
+	 </div><br>
+	</div>
+	<div style="margin-left: -40px !important;">
+		{{> myrefine category}}
+	</div>
+	<div class="container">
+		<div class="col-md-12">
+		<div class="hold_result">
+				<p dir="{{getDirection}}">{{nbproducts}}/{{totalProducts}}{{_ "products result"}}</p>
+			</div>
+                <div class="hold_bradcame">
+                    <a id="bestSelling" class="" href="#" style="text-decoration:none;">
+                     &nbsp;{{_ "Best selling"}}</a>
+                    <a id="name" class="reward-sell" href="#" style="text-decoration:none;">
+                     &nbsp;&nbsp;&nbsp;{{_ "Sort Name"}} </a>
+                    <a id="price" class="reward-sell" href="#" style="text-decoration:none;">
+                      &nbsp;&nbsp;&nbsp;{{_ "Sort Price"}}
+                    </a>
+                </div>
+              
+			<div class="hold_product">
+				{{#each products}}
+				<div class="col-xs-6 col-md-3 product_item">
+					<div class="thumbnail text-left">
+						<div class="caption" style="padding:0px;margin:0px;text-align:center;">
+							<div class="btn#e4332a">
+								<a href="" style="" class="label label-danger" id="quickbtn" rel="tooltip" data-toggle="modal" data-target="#quickView">{{_"Quickview"}}</a>
+							</div>
+							
+						</div>
+						
+						<div class="clearfix" style="width: 100%; margin-bottom:2px; height:150px; text-align:center">
+							<a href="/details/{{slug title}}" title="{{title}}">
+        					<img src="{{getImgForProduct _id}}" style="width:150px; height:150px;" class="img-responsive" alt="{{title}}">
+       						</a>
+						</div>
+
+						<div class="clearfix" style="width: 100%;overflow:hidden;text-align: center; height:70px;">
+							<a href="/details/{{slug title}}" class="title">{{smaller title 8}}</a>
+						</div>
+						
+						<div class="clearfix text-center" style="width: 100%; height: 30px; overflow: hidden;">
+							<a href="/details/{{slug title}}" class="price{{oldId}}" style="padding-bottom:20px;" >
+							{{getAttribprice oldId}}
+							</a>
+							<a href="#" class="unlike unlike{{_id}}" data-id="{{_id}}"><span  class="fa fa-heart-o fonfa"></span></a>
+                       		<a href="#" class="like nonelike like{{_id}}" data-id="{{_id}}"><span style="color:red" class="fa fa-heart fonfa"></span></a>
+
+						</div>
+						
+
+					</div>
+				</div>
+				{{/each}}
+
+				
+			</div>
+		</div>
+	</div>
+	<div class="modal" id="quickView" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-top:30px;">
+		{{#each getSelectedProduct}}
+		{{#with this}}
+		<div class="modal-dialog" role="document">
+			<div class="modal-content" style="width: 150%; margin: 0px 0px 0px -150px !important;">
+					  <div class="modal-content">
+						<div class="modal-header" style="background:#000; padding:0px;" >
+						  <button type="button" class="close" data-dismiss="modal"><img src="/images/pop_cancel.png"></button>
+						</div>
+						
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-md-5">
+									<span class='zoom' id='ex1'>
+										<img id="hoverZoom" width="250" height="250" class="img_principle" src="{{getImgForProduct _id}}" alt="{{title}}"/>		
+									</span>	
+									<script>
+										$(document).ready(function(){
+											$('#ex1').zoom('{{getFirstImgProduct _id}}');
+											$('#ex2').zoom({ on:'grab' });
+											$('#ex3').zoom({ on:'click' });			 
+											$('#ex4').zoom({ on:'toggle' });
+										});
+									</script>
+								</div>
+								<div class="col-md-7">
+									<div class="quick-detail">
+										<h2 class="title-quick-view">{{title}}</h2>
+										<p class="arab-font">{{{description}}}</p>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<span>Qty</span> &nbsp;
+											<select class="select-view" id="qty">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											</select>
+										</div>
+										<div class="col-md-6">
+	                                      <a href="/details/{{slug title}}"><button class="btn-moredetail-view left">{{_"MORE DETAIL"}}</button></a>
+										</div>
+
+										<div class="col-md-6">
+											  <a href="/details/{{slug title}}" style="font-weight:bold;color:#000;" class="price{{oldId}}">
+									            <h3 style="font-weight:bold;color:#000;">{{getAttribprice oldId}}</h3>
+									          </a>
+										</div>
+										<div class="col-md-6">
+	                                       <button class="btn-add-tocard left" id="addtocart">{{_ "ADD TO CARD"}}</button>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+							<div class="col-md-12">
+							   <hr style="border:1px solid #000;">
+							</div>
+						</div>
+
+						<div class="modal-footer center-block" style="border:none">
+							<div class="col-md-12">
+                               <h4 class="pull-left">Related products</h4>
+							</div>
+							
+							<div class="row">
+								<ul class="list-inline">
+									<li width="100"><a href="">
+											<div class="hold_product_detail">
+											<div class="row"></div> 
+											{{>recommendation}}
+										</div>
+									</a></li>
+								</ul>
+							</div>
+						</div>
+					  </div>	
+					</div>
+					</div>
+					{{/with}}
+					{{/each}}
+					<script>
+					$('.modal-backdrop').remove();
+					</script>
+				</div> -->
+
+<!-- </template> -->

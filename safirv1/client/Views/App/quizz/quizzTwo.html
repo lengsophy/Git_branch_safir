@@ -1,0 +1,99 @@
+<template name= "quizztwo">
+	<div class="container">
+        <div class="row">
+	        <div class="col-lg-12">
+	      <!--   <h1>Select quizz</h1>
+	        	<h1>{{name}}</h1> -->
+	        </div>
+        	<div class="col-lg-12">
+        		<section class="bg_home">
+					<div class="container">
+						<div class="quick_view">
+						<!-- Trigger the modal with a button -->
+						  <button type="button" class="btn btn-default center-block" data-toggle="modal" data-target="#quizztwo" id="quizzpop"></button>
+						  <!-- Modal -->
+						  <div class="modal" id="quizztwo" role="dialog">
+							<div class="modal-dialog modal-lg">
+				
+					  <!-- Modal content-->
+					  <div class="modal-content">
+						<!-- <div class="modal-header">
+						  <button type="button" class="close" data-dismiss="modal"><img src="/images/pop_cancel.png"></button>	  
+						</div> -->
+						<div class="clearfix"></div>
+<!-- 						<div class="modal-body">
+							<div class="row">
+							{{#with getFirstQu question}}
+								<div class="col-md-12">
+									<h5 class="pop_title text-center">{{question}}</h5>
+									{{#each answers}}
+									<div class="col-lg-2 col-sm-6">
+										<img src="{{getImg image}}" class="img-circle center-block" alt="Cinque Terre" height="100" width="100">
+										<p class="text-center" style="font-size:12px; padding:5px"><label class="checkbox"><input name="checkbox" checked="" value="{{value}}" type="radio" id="face"><i></i>{{value}}</label></p>
+									</div>
+									{{/each}}
+								</div>
+							{{/with}}
+							</div>
+						</div> -->
+
+						<!-- adding by chien -->
+						<div class="modal-content bg-popup2">
+							<div class="modal-header">
+								<div class="header-popup">
+									<div class="col-xs-4 col-md-4" style="width:15%">
+										<img src="/images/quiz_safir.png" class="logo1 img-responsive">
+									</div>
+									<div class="col-xs-4 col-md-4">
+										<img src="/images/3sum-icons.png" class="logo-3icon center-block img-responsive">
+									</div>
+									<div class="col-xs-4 col-md-4">
+										<h2 class="write text-right">Lips</h2>
+									</div>
+								</div>
+							</div>
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-8 col-md-offset-2">
+										<div class="section1-question">
+											<div class="col-md-12">
+												<p class="question text-center">Question exemple :</p>
+											</div>
+										</div>
+										<div class="answer-radia">
+											<div class="col-md-6 col-md-offset-3">
+												<label class="radio">
+													<input id="radio1" type="radio" name="radios" checked>
+													<span class="outer"><span class="inner"></span></span>Answer 01
+												</label>
+												<label class="radio">
+													<input id="radio2" type="radio" name="radios">
+														<span class="outer"><span class="inner"></span></span>Answer 01
+													</label>
+												<label class="radio">
+													<input id="radio3" type="radio" name="radios">
+														<span class="outer"><span class="inner"></span></span>Answer 01
+												</label>
+											</div>
+										</div>
+										<div class="section3">
+											<div class="row">
+												<div class="col-md-6 col-md-offset-3">
+													<a href="/quizzthree"><button class="btn btn-block btn-Begins pull-right" type="button">Submit </button></a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					  </div>					  
+					</div>
+						  </div><!--/ end model -->
+						</div>
+					</div>
+				</section>
+        	</div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,241 @@
+<template name="tutodetails">
+	<!-- Start contain -->
+	<section class="shadow_bottom" >
+		{{#with this.result}}
+		<div class="container" id="space_cont_top"  >		
+			<div class="clearfix"></div>
+			<div class="space_cont_top">
+				<div class="col-md-12">
+				</div>
+				<div class="col-md-7">
+					<h1 class="txt-color" >{{title}}</h1><br>
+					<!-- <p>{{url}}</p> -->
+					<video width="490" height="370" id="mainVideo" style="margin-top:-76px" controls>
+						<source src="/videos/{{url}}" type="video/mp4">
+							
+						</video>
+						<div class="share-control" style="padding-top:10px; padding-bottom:50px">
+							<div class="col-md-4"> 
+							</div>
+							<div class="col-md-12 row share-control">
+								<p class="p-font-sm">{{{content}}}</p>
+								<!-- <button class="btn btn-default" id="btnshare">Share</button> -->
+								<div class="fb-like" 
+									data-href="{{getcurrentURl}}" 
+									data-layout="button_count" 
+									data-action="like" 
+									data-show-faces="true" 
+									data-share="true">
+								</div>
+							</div>
+						</div> 	
+					</div>
+					<div class="col-md-5" style="padding-top:40px;">
+						{{#each getRelated}}
+						<div class="row space-row-tuto div_hover">
+							<div class="col-md-5">
+								<a href="/tutodetails/{{title}}" title="{{title}}">
+									{{#with getImgTuTO _id}}
+									<img src="{{getImg this}}" class="img-thumbnail" style="margin-bottom:15px; width:150px; height:113px" alt="{{title}}">
+									{{/with}}
+								</a>	 
+							</div>
+							<div class="col-md-7">
+								<h4 class="h4-bold-tuto bold" style="padding-top:15px;"><a href="/tutodetails/{{title}}">{{title}}</a></h4>
+								<p class="p-font-sm">
+									{{{smaller content 10}}}
+								</p>
+							</div>
+						</div>
+						{{/each}}
+					</div>
+				<!-- 	<div class="col-md-12">
+						<div class="hold_btn_filter_view">
+							<div class="pull-right">
+								<a href="" id="closeFilter" style="display:none;">Close</a>
+								<button class="btn btn-filter-view" type="button" id="input">
+									<i class="fa fa-search"></i> {{_ "FILTER REVIEWS"}}</button>  
+							</div>
+						</div>
+					</div> -->
+
+						
+					
+				
+						<div class="col-md-12">
+							{{#if currentUser}}
+							{{>addreview}}
+							{{/if}}
+							{{#each getReviewBySort review}}
+							{{>review}}
+							{{else}}
+							<i>هیچ بررسی</i>
+							{{/each}}
+							<!-- <div class="pull-right">
+								<h3 id="show1" class="morereview" >{{_ "MORE REVIEWS"}} &nbsp; <i class="fa fa-angle-down morereview"></i></h3>   
+							</div> -->
+						</div>
+						<div class="lips-box">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							{{#with related_product category}}
+							{{#if dataLenght}}
+							<div class="row h1-pad" style="margin-left:15px;">
+								<h1>{{_"RELATED PRODUCTS"}}</h1>
+							</div>
+
+							<br>
+							<div class="on-lips">
+								<div class="row"> 
+									{{#each productsRelat}}
+									<div class="col-md-3">
+										<a href="/details/{{slug title}}"><img style="" src="{{getImgForProduct _id}}" class="img-thumbnail center-block" alt="" width="150" height="150"></a>
+										<p class="rel-title relatedp"><a href="{{pathFor 'details' id=_id}}" style="color:black;" >{{title}}</a></p>
+										<h3 class="text-center" style="font-weight:bold;font-size:1em;">{{price}}</h3>
+									</div>
+									{{/each}}
+									
+									
+								</div>
+							</div>
+							{{/if}}
+							{{/with}}
+						</div>
+					</div>
+					
+
+				</div>
+			</div>
+			{{/with}}
+		</section>
+
+		<!-- first popup -->
+		<div class="container myModaltuto">			
+			<div class="modal alert" id="myModaltuto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document" style="border-radius:none;">
+					<div class="modal-content">
+						<div class="modal-header header-win" style="padding: 11px;
+							margin-top: 30px;">
+							<div class="header-popup">
+								<button type="button" class="close" data-dismiss="modal">
+									<img src="/images/x-close.png" id="popup1" class="img-responsive pull-right" width="20%">
+								</button>
+							</div>
+						</div>
+						<div class="modal-body">
+							<div class="col-md-12">
+								<div class="col-md-8 col-md-offset-2">
+									<h3 class="title-win text-center">Congratulations you win your first Safir points</h3>
+								</div>
+								<div class="col-md-12">
+									<img src="/images/celebrate.png" class="img-responsive center-block" width="30%">
+								</div>
+								<div class="col-md-12">
+									<h3 class="win reward text-center">A lot of rewards to win</h3>
+								</div>
+								
+								<div class="col-md-12">
+									
+									<div class="col-md-5">
+										<div class="gift-image">
+											<img src="/images/gift.png" class="img-gift pull-right img-responsive" width="50%">
+										</div>
+									</div>
+									<div class="col-md-7">
+										<h3 class="win " style="margin-left:15px;">For more informations</h3>
+										<div class="col-md-10">
+											<div class="btn btn-block btn-win" style="padding: 3px 0px;">See my Reward page</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- end first popup -->
+	<!-- second popup -->
+		<div class="container">			
+			<div class="modal alert" id="myModaltuto2" tabindex="-2" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document" style="border-radius:none;">
+					<div class="modal-content">
+						<div class="modal-header header-win" style="padding: 11px;
+							margin-top: 30px;">
+							<div class="header-popup">
+								
+									<button type="button" class="close" >
+										<img src="/images/x-close.png" id= "popup" class="img-responsive pull-right" width="20%">
+									</button>
+								
+							</div>
+						</div>
+						<div class="modal-body">
+							<div class="col-md-12">
+								<h3 class="title-win text-center">Continue to earn more points</h3>
+								<div class="row">
+									<div class="instagram-share">
+										<div class="col-md-4">
+											<a href="">
+												<img src="/images/follow-us-instagram.png" width="60%" style="margin: 10px 40px;">
+											</a>
+										</div>
+										<div class="col-md-8">
+											<h2 class="h2-points">+30 pt</h2>
+											<p class="points-description">Following us on <a href="" class="link-point">Instagram</a></p>
+										</div>
+									</div> 
+								</div>
+								<div class="row">
+									<div class="sharing-content">
+										<div class="col-md-4">
+											<a href="">
+												<img src="/images/sharing-content.png" width="60%" style="margin: 10px 40px;">
+											</a>
+										</div>
+										<div class="col-md-8">
+											<h2 class="h2-points">+20 pt</h2>
+											<p class="points-description">Sharing content to friend and being sponsor by a friend</p>
+										</div>
+									</div> 
+								</div> 
+								<div class="row">
+									<div class="shop-online">
+										<div class="col-md-4">
+											<a href="">
+												<img src="/images/shop-online.png" width="60%" style="margin: 10px 40px;">
+											</a>
+										</div>
+										<div class="col-md-8">
+											<h2 class="h2-points">+100 pt</h2>
+											<p class="points-description">Shop in the online store</p>
+										</div>
+									</div> 
+								</div> 
+								<div class="row">
+									<div class="see-more-point">
+										<div class="col-md-5 col-md-offset-7">
+											<div class="btn btn-block btn-win" style="margin-bottom: 3px;">See my Member page</div>
+										</div>
+									</div>
+								</div>
+							</div> 
+						</div> 
+					</div> 
+				</div>
+			</div>
+		</div>
+	<!-- end second popup -->
+		<br>
+		<div id="fb-root"></div>
+		<script>
+		  (function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=1152399321466345";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+		</script>
+
+
+	</template>

@@ -1,0 +1,163 @@
+  <template name="reward">
+
+    <section class="wrapper-first-con">
+      <div class="container">
+        <div class="col-md-12">
+
+          <div class="space-top" style="margin-top:30px;">
+
+            <div class="col-md-3">
+              <div class="well-profile">
+                    <div class="">
+                      {{#with getprofile}}
+                      <img src="{{getImg image}}" class="img-responsibve" width="100%">
+                      {{/with}}
+                    </div>
+
+                    <div class="hover-profile">
+                      <ul class="text-center">
+                        <li><a href="/profile">{{_"PROFILE"}}</a></li>
+                                  <li><a href="/member">{{_"MEMBER DETAIL"}}</a></li>
+                                  <li><a href="/reward">{{_"REWARDS"}}</a></li>
+                                  <li><a href="/quiz">{{_"QUIZ AFFINITY"}}</a></li>
+                      </ul>
+                    </div>
+                    <div class="text-center">
+                      <h1 class="h1">{{#with getprofile}}{{profile.shipcard.point}} {{/with}} {{_ "Points"}}</h1>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="col-md-9">
+              <div class="wapper-member-title">
+                <h1 class="member-pro">{{_"REWARDS"}}</h1>
+                <p class="member-text">You are actually a {{membership}} Member</p>
+              </div>
+
+              <div class="wapper-member">
+                <div class="pull-left">
+                  <img src="images/reward-img.png" class="img-responsive pull-left" width="200" height="200">
+                </div>
+
+                <div class="text-member-all">
+                  <p class="member-description"> Many rewards are available here.
+                      You can spend your collected points as you like . Depending on your membership status ( black, silver or gold) awards will evolve and will be increasingly advantageous. Many awards and many events are coming.
+                      If you would like more information on how to earn points click here: <a href="/member">' Member Page '</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="well-earn-more">
+              <h2 class="text-earn">{{_"Spending your credits"}}</h2>
+            </div>
+          </div>
+
+          {{#each getproductreward}}
+
+          <div class="col-xs-6 col-md-3 product_item">
+            <div class="thumbnail text-left" style="border:none;">
+              <div class="clearfix" style="width: 100%; margin-bottom:2px; height:150px; text-align:center">
+
+                <a href="#" class="" id="quickbtn" rel="tooltip" data-toggle="modal" data-target="#quickView">
+                <img src="{{getImgForProduct _id}}" style="width:150px; height:150px;" class="img-responsive" alt="{{title}}">
+                </a>
+              </div>
+
+              <div class="clearfix" style="width: 100%;overflow:hidden;text-align: center; height:70px;">
+                <a href="/details/{{slug title}}" class="title" style="text-decoration:none;">{{title}}</a>
+              </div>
+
+              <div class="clearfix text-center" style="width: 100%; height: 30px; overflow: hidden; margin-top:-15px;">
+
+              </div>
+
+            </div>
+          </div>
+
+          {{/each}}
+
+        </div> <!-- bg-member -->
+      </div>    
+    </section>
+
+    <!-- model quick view -->
+    <!-- quickview -->
+    <div class="modal" id="quickView" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-top:30px;">
+      {{#each getSelectedProduct}}
+      {{#with this}}
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width: 150%; margin: 0px 0px 0px -150px !important;">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header" style="background:#000; padding:0px;" >
+              <button type="button" class="close" data-dismiss="modal"><img src="/images/pop_cancel.png"></button>
+            </div>
+
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-5">
+                  <img  src="{{getImgForProduct _id}}" width="300px" height="300px" class="center-block">
+                </div>
+                <div class="col-md-7">
+                  <div class="quick-detail">
+                    <h2 class="title-quick-view">{{title}}</h2>
+                    <p class="arab-font"> {{{description}}} </p>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <span>Qty</span> &nbsp;
+                      <select class="select-view" id="qty">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <a id="closeModal" href="/details/{{slug title}}"><button class="btn-moredetail-view left">{{_"MORE DETAIL"}}</button></a>
+                    </div>
+
+                    <div class="col-md-6">
+                      <h3 class="price-view">{{#with getListprice oldId}}{{price}}{{/with}}<span>ریال</span></h3>
+                    </div>
+                    <div class="col-md-6">
+                      <button class="btn-add-tocard left" id="addtocart">{{_"ADD TO CARD"}}</button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-md-12">
+                <hr style="border:1px solid #000;">
+              </div>
+            </div>
+            <div class="modal-footer center-block" style="border:none">
+              <div class="col-md-12">
+                <h4 class="pull-left">{{_"Related products"}}</h4>
+              </div>
+
+              <div class="row">
+                <ul class="list-inline">
+                  <li width="100"><a href="">
+                    <div class="hold_product_detail">
+                      <div class="row"></div> 
+                      {{>recommendation}}
+                    </div>
+                  </a></li>
+                </ul>
+              </div>
+            </div>
+          </div>  
+        </div>
+      </div>
+      {{/with}}
+      {{/each}}
+      <script>
+        $('.modal-backdrop').remove();
+      </script>
+    </div>
+    <!-- end -->
+
+  </template>

@@ -1,0 +1,100 @@
+<template name="profile">
+<div class="container">
+	<div class="row">
+		<div class="container-box">
+			<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 con-me">
+
+				<section class="wrapper-first-con" style="margin-bottom:20px">
+					<div class="container">
+						<div class="col-md-12">
+						
+							<div class="space-top" style="margin-top:30px;">
+								<div class="col-md-3">
+									<div class="well-profile">
+										<div class="">
+											{{#with getprofile}}
+											<img src="{{getImg image}}" class="img-responsibve" width="100%">
+											{{/with}}
+										</div>
+
+										<div class="hover-profile">
+											<ul class="text-center">
+												<li><a href="/profile">{{_"PROFILE"}}</a></li>
+							                    <li><a href="/member">{{_"MEMBER DETAIL"}}</a></li>
+							                    <li><a href="/reward">{{_"REWARDS"}}</a></li>
+							                    <li><a href="/quiz">{{_"QUIZ AFFINITY"}}</a></li>
+											</ul>
+										</div>
+										<div class="text-center">
+											<h1 class="h1">{{#with getprofile}}{{profile.shipcard.point}} {{/with}} {{_ "Points"}}</h1>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-9">
+									<h1 class="h1-name-profile">Arthurrr</h1>
+									<h3>{{#with getprofile}}{{profile.firstname}} {{profile.lastname}}{{/with}} </h3>
+									<hr style="border:1px solid #000;">
+									<div class="table-responsive">
+										<table class="table" >
+											<tbody>
+												{{#with getprofile}}
+												<tr>
+													<td>{{_ "NAME"}}</td>
+													<td style="font-weight:bold">{{profile.firstname}} {{profile.lastname}}</td>
+												</tr>
+
+												<tr>
+													<td>{{_ "BIRTH DATE"}}</td>
+													<td style="font-weight:bold">{{profile.birth}}</td>
+												</tr>
+												<tr>
+													{{#each emails}}
+													<td>{{_ "EMAIL"}}</td>
+													<td style="font-weight:bold">{{address}}</td>
+													{{/each}}
+												</tr>
+												<tr>
+													<td>{{_ "SEX"}}</td>
+													<td style="font-weight:bold">{{profile.sex}}</td>
+												</tr>
+												<tr>
+													<td>{{_ "ADDRESS"}}</td>
+													<td style="font-weight:bold">{{profile.address}}</td>
+												</tr>
+												<tr>
+													<td>{{_ "PHONE"}}</td>
+													<td style="font-weight:bold">{{profile.phone}}</td>
+												</tr>
+												<tr>
+													<td>{{_ "EMAIL"}}</td>
+													<td style="font-weight:bold">{{profile.email}}</td>
+												</tr>
+												{{/with}}
+											</tbody>
+										</table>
+									</div>
+									<div>
+								<a href="/editprofile">
+									<button type="button" class="btn-profile-black pull-right">{{_ "EDIT"}}</button>
+								</a>
+									</div>
+								</div>
+
+							</div>
+							<div class="col-md-12">
+								<hr style="border:1px solid #000;">
+							</div>
+
+							<div class="col-md-12">
+								<a href="#"><img src="/img/Banniere-quiz-profil.jpg" width="100%" class="img-responsive"></a>
+							</div>
+						</div> 
+					</div>     
+				</section>
+				<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+

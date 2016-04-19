@@ -1,0 +1,188 @@
+<template name="listForum">
+<!-- integrated section -->
+    <section class="forum">
+     
+      <div class="container">
+        
+        <!-- <ul class="list-inline">
+          <li class="active"><a href="">Likes</a></li>
+          <li><a href="">News</a></li>
+          <li><a href="">PEOPLES WITH SIMILAR PROFIL</a></li>
+        </ul> -->
+          <div class="col-lg-12">
+             <div class="container"> {{> navforum}}</div>
+            <h2 class="forum-title">MAKEUP DISCUSSION</h2>
+           <div class="form-group">
+            <label for="sel1">Select Category:</label>
+              <select class="selectpicker">
+                 <option value="">Select One</option>
+                {{#each listCategory}}
+                  <option value="{{_id}}">{{title}}</option>
+              {{/each}}
+            </select>
+          </div>
+        </div>
+        <div class="col-lg-9">
+          <div class="main-listforum">
+            <ul id="listing">
+            
+              {{#with getallForum}}
+                {{#if status}}
+                  {{#each data}}  
+                    <li>
+                       {{#with getprofile this.userId topic category _id date}}
+                      <div class="col-lg-2">
+                       
+                       
+                           {{#if status}}
+                              <img style="border:8px solid #000;margin-top:30px" src="{{getImg imageId}}" class="img-circle center-block" alt="Avatar" width="50" height="50">
+                            
+                          {{else}}
+                               <img style="border:8px solid #000;margin-top:30px" src="/uploads/user.png" class="img-circle center-block" alt="Avatar" width="50" height="50">
+                          {{/if}}
+                        
+                      </div>
+                      <div class="col-lg-7">
+                        <div class="forum-body">
+                          <h5 class="title-forum"><a href="/forum/detail/{{info.forumId}}">{{info.topic}}</a></h5>
+                          <p class="">{{name}}/ <a href="/category/{{displayCategory info.category}}">{{displayCategory info.category}}</a></p>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="forum-body-left">
+                          <p class="reply-forum">{{getReply info.forumId}} reply</p>
+                          <p class="date">{{> timeago getHumanTime info.date}}</p>
+                          <!--<p><a href=""><i class="fa fa-heart red-heart"></i></a> <span class="rate-forum">19</span></p>-->
+                        </div>
+                      </div>
+                      {{/with}}
+                    </li>
+                    {{/each}}
+                  {{else}}
+                      <p>Sorry, no forum found in this category!</p>
+                  {{/if}}
+              {{/with}}
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="img-slide">
+            <p class="left-title">WEBZINE RELATED</p>
+             
+                {{#each webzineRelated}}
+                   <div class="ic_container">
+                    {{#each image}} 
+                      <img src="{{getImg this}}" class="img-responsive"/>
+                    {{/each}}
+                    
+                    <div class="ic_caption">
+                      <p class="ic_category text-center">{{title}}</p>
+                    </div>
+                   </div>
+                  {{/each}}
+             
+          </div>
+          
+        </div>
+      </div>
+    </section>
+  <!-- end of integrated section -->  
+  <script type="text/javascript">
+            $(function() {
+                $("#capslide_img_cont").capslide({
+                    caption_color : 'white',
+                    caption_bgcolor : 'black',
+                    overlay_bgcolor : 'none',
+                    border      : '',
+                    showcaption     : false
+                });
+                $("#capslide_img_cont1").capslide({
+                    caption_color : 'white',
+                    caption_bgcolor : 'black',
+                    overlay_bgcolor : 'none',
+                    border      : '',
+                    showcaption     : false
+                });
+            });
+        </script>
+
+  <script>
+  var swiper = new Swiper('.swiper-container', {
+        //pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        slidesPerView: 5,
+        centeredSlides: true,
+        paginationClickable: true,
+        spaceBetween: 25,
+    });
+  </script>
+  <script>
+  $(document).ready(function(){
+    $(".search-push-left").hide();
+    var isOn = true;
+    $(function(){
+       $("#btn-all").click(function(){
+        console.log(isOn);
+        if ( isOn ){
+          isOn = false;
+          $('.search').css("width", '45%');
+          $(".search-push-left").hide();
+        } else {
+          isOn = true;
+          $('.search').css("width", '72%');
+          $(".search-push-left").show();
+        }
+        return false;
+      });
+    });
+  });
+  </script>
+  <script>
+    $(document).ready(function($){
+      $('.megamenu').megaMenuCompleteSet({
+        menu_speed_show : 300, // Time (in milliseconds) to show a drop down
+        menu_speed_hide : 200, // Time (in milliseconds) to hide a drop down
+        menu_speed_delay : 200, // Time (in milliseconds) before showing a drop down
+        menu_effect : 'hover_fade', // Drop down effect, choose between 'hover_fade', 'hover_slide', etc.
+        menu_click_outside : 1, // Clicks outside the drop down close it (1 = true, 0 = false)
+        menu_show_onload : 0, // Drop down to show on page load (type the number of the drop down, 0 for none)
+        menu_responsive:1 // 1 = Responsive, 0 = Not responsive
+      });
+    });
+  </script>
+  <!-- you need to include the shieldui css and js assets in order for the charts to work -->
+
+
+<script type="text/javascript">
+    initializeRatings();
+
+    function initializeRatings() {
+        $('#rate1').shieldRating({
+            max: 5,
+            step: 0.1,
+            value: 4,
+            markPreset: false
+        });
+    }
+</script>
+<!--Select image-->
+  <script>
+        var iconSelect;
+        window.onload = function(){
+            iconSelect = new IconSelect("my-icon-select", 
+                {'selectedIconWidth':30,
+                'selectedIconHeight':30,
+                'selectedBoxPadding':1,
+                'iconsWidth':23,
+                'iconsHeight':23,
+                'boxIconSpace':1,
+                'vectoralIconNumber':4,
+                'horizontalIconNumber':4});
+            var icons = [];
+            icons.push({'iconFilePath':'/images/1.png', 'iconValue':'1'});
+            icons.push({'iconFilePath':'/images/2.png', 'iconValue':'2'});
+            icons.push({'iconFilePath':'/images/3.png', 'iconValue':'3'});
+  </script>
+  
+</template>

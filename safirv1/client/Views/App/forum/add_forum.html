@@ -1,0 +1,125 @@
+<template name="addPost11">
+    <div class="container"> {{> navforum}}</div>
+   <div class="container">
+    <button id="reply">Reply</button>
+    <h1>Add New Post</h1>
+      <form class="form-horizontal" id="addPost" role="form" method="post">
+     <div class="form-group">
+        <label for="title" class="col-sm-2 control-label">Topic</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" required id="topic" name="topic" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="message" class="col-sm-2 control-label">Description</label>
+        <div class="col-sm-6">
+            <textarea class="form-control" rows="4" required name="description" id="description"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="message" class="col-sm-2 control-label">Category</label>
+        <div class="col-sm-6">
+        
+            <select class="form-control" required id="category" name="category">
+            {{#each listCategories}}
+                <option value="{{_id}}">{{title}}</option>
+            {{/each}}
+            </select>
+        
+        </div>
+    </div>
+        <div class="form-group">
+        <label for="message" class="col-sm-2 control-label">Select image:</label>
+        <div class="col-sm-6">
+            <input type="file" name="image" id="image" class="your-upload-class">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-6 col-sm-offset-2">
+            <input id="submit" name="submit" type="submit" value="Submit" class="btn btn-primary">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-6 col-sm-offset-2">
+            <!-- Will be used to display an alert to the user -->
+        </div>
+    </div>
+</form>
+   </div>
+</template>
+<template name="addPost">
+    <section class="forum">
+            <div class="container"> {{> navforum}}</div>
+            <div class="container">
+
+                <h1 class="form-forum">MAKEUP DISCUSSION</h1>
+
+              <div class="big-wrapper-form">
+
+                <!--<div class="col-md-3">
+                  <div class="wrap-form text-center">
+                    <img class="img-circle img-responsive" src="{{getImg currentUser.image}}">
+                    <p class="text-form">{{currentUser.profile.firstname}}</p>
+                    
+                  </div>
+                </div>-->
+                <form class="form-horizontal" id="addPost" role="form" method="post">
+                <div class="col-md-9">
+                    <div class="wrap-form">
+                       <ul class="list-inline forum-sub-cat">
+                        <li class="active"><a href="">Choose a subcategory :</a></li>
+                        <li class="bg-form">
+                            <select class="selectpicker" id="categoryid">
+                               <option value="">Select One</option>
+                              {{#each listCategory}}
+                                <option value="{{_id}}">{{title}}</option>
+                            {{/each}}
+                          </select>
+                        </li>
+                        <!--<li class="bg-form-grey"><a href="">Lips</a></li>
+                        <li class="bg-form-grey"><a href="">Eye makeup</a></li>
+                        <li class="bg-form-grey-a"><a href="">Face makeup</a></li>
+                        <li class="bg-form-a"><a href="">Nails</a></li>-->
+                       </ul>
+                    </div>
+                    
+                    <div class="clear-fix"></div>
+
+                    <div class="well-form space-well-form">
+                       <span>OBJECT : <span class="text-form-bold"><input type="text" class="form-control-forum" id="topic" name="topic"></span></span>
+                    </div>
+                     <!--<div class="well-form space-well-form">
+                       <select class="form-control-forum" required id="category" name="category">
+                        {{#each listCategories}}
+                            <option value="{{_id}}">{{title}}</option>
+                        {{/each}}
+                        </select>
+                    </div>-->
+                    <div class="input-form-space">
+                       <textarea class="form-control" rows="10"  placeholder="Write what you want ..." name="description" id="description"></textarea>
+                    </div>
+
+                    <div class="Glyphicons">
+                      <div class="col-md-6">
+                       <!--<div class="text-left row">
+                        <span class="glyphicon glyphicon-font" aria-hidden="true"> <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span></span>
+                       </div>-->
+                      </div>
+
+                      <div class="col-md-6">
+                       <div class="text-right row">
+                        <!-- <button class="btn_send-form">SEND</button> -->
+                        <div class="form-group">
+                            <input id="submit" name="submit" type="submit" value="Submit" class="btn_send-form">
+                        </div>
+                       </div>
+                      </div>
+                    </div>
+                </div>
+                </form>
+
+              </div>
+            </div>
+        </section>
+</template>
+

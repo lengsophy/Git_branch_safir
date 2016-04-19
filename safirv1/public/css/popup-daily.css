@@ -1,0 +1,117 @@
+.header-win{
+	background:#000;
+	overflow:hidden;
+}
+.section .container .modal-dialog .modal-content{
+	background-size: 100% 100%;
+	overflow:hidden;
+}
+.title-win{
+	font-weight:bold;
+	font-size:28px;
+	padding-bottom:15px;
+}
+.reward{
+	padding-top:15px;
+	padding-bottom:40px;
+}
+.gift{
+	padding-bottom:30px;
+}
+h3.win{
+	font-size:20px;
+}
+.modal-body .btn-win{
+	background:#000;
+	color:#fff;
+	font-weight:bold;
+	border-radius:0px;
+}
+.section .container .modal-dialog .modal-content {
+    position: relative;
+    background-color: #fff;
+    -webkit-background-clip: none;
+    background-clip: none;
+    border: none;
+    border: none;
+    border-radius: 0px;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.section .container .modal-dialog .modal-content .modal-header .header-popup button.close{
+	opacity:1000;
+}
+.img-gift{
+	margin-top:12px;
+	margin-bottom:40px;
+}
+.gift-image img{
+	margin-top: 22px;
+}
+.wrapp-allpop{
+	margin: 0px 30px 30px 0px;
+}
+.text-hr{
+	padding-top: 20px;
+}
+.text-red{
+	color: red;
+}
+.text-space{
+	margin-top: 30px;
+}
+.mdpop-text{
+	font-size: 19px;
+	margin-top: 20px;
+	text-align: left;
+}
+.font-nore{
+    font-family:'Conv_Notera_PersonalUseOnly',Sans-Serif;
+	text-align:left;
+	font-size: 40px;
+}
+
+
+#wrapper-sm{
+	cursor: pointer;
+}
+#wrapper-sm .text {
+	position:relative;
+	bottom:120px;
+	left:60px;
+	visibility:hidden;
+}
+
+#wrapper-sm:hover .text {
+	visibility:visible;
+	opacity: 1 ;
+}
+.img-hover:hover{
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+} 
+
+#wrapper-md{
+	cursor: pointer;
+}
+#wrapper-md .text {
+	position:relative;
+	bottom:120px;
+	left:130px;
+	visibility:hidden;
+}
+
+#wrapper-md:hover .text {
+	visibility:visible;
+	opacity: 1 ;
+}
+.img-hover:hover{
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+} 
+p.text{
+	font-size: 16px;
+	color: #000;
+	font-weight: 700;
+}

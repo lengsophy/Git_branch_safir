@@ -1,0 +1,74 @@
+/* Webzine chhay */
+
+
+.spacetop-webzine{
+	margin-top: 50px;
+
+}
+.wrap-text-webzine{
+   margin-top: 30px;
+}
+.wrap-text-webzine-sm{
+	margin:0 auto;
+}
+h2.webzine-title{
+	font-size: 20px;
+	color: #e3382a;
+	text-transform: uppercase;
+	font-family: "Avalonbold";
+	margin-bottom: 20px;
+}
+h3.webzine-title-sm{
+	font-size: 15px;
+	color: #e3382a;
+	text-transform: uppercase;
+	font-family: "Avalonbold";
+	margin-bottom: 5px;
+
+}
+.cate-webzine{
+  color: #cccccc;
+  margin-top: 10px;
+}
+.cate-webzine-sm{
+	
+}
+.webzine-text{
+	margin-bottom: 10px;
+
+}
+.webzine-text-sm{
+	margin:0 auto;
+	font-size: 13px;
+}
+.wrapper-icon-webzine{
+    float: left;
+    margin-top: 5px;
+}
+.wrapper-sm-border{
+	padding: 20px 0 10px 0;
+}
+.wrapper-lg-border{
+	padding: 20px 0 20px 0;
+}
+
+/* style-hover */
+
+.style_featured{
+    padding: 20px 0;
+    text-align: center;
+}
+.style_featured{
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: 0.5s;
+}
+.style_featured > :hover{
+    margin-top: +19px;
+    border: none;
+    box-shadow: 2px 4px 5px 1px rgba(189, 184, 197, 0.4);
+    background: #fff;
+    transition: 0.77s;
+}
+

@@ -1,0 +1,154 @@
+<template name="addquizz">
+	<div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">{{_"ADD QUIZZ"}}</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                	<p id="qiuzzInfo" style="color:red"></p>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            {{_"FORM QUIZZ"}}
+                            <a href="/managequizz" class="pull-right btn-primary btn-sm" style="margin-top: -4px;">{{_"Back"}}</a>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                	<div class="form-group">
+                                        <label>{{_"Quizz_Name"}}</label>
+                                        <input class="form-control" id="quizz_name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>{{_"Quizz_Type"}}</label>
+                                        <select class="form-control" id="quizz_type">
+                                        	
+                                        	<option value="Eyes">{{_"Eye"}}</option>
+                                        	<option value="Skin">{{_"Skin"}}</option>
+											<option value="Lips">{{_"Lips"}}</option>
+											<option value="Hair">{{_"Hair"}}</option>
+											<option value="Face">{{_"Face"}}</option>
+											<option value="Body">{{_"Body"}}</option>
+											<option value="Perfume">{{_"Perfume"}}</option>                                        	
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-12">
+                                    	<p id="quizz_required" style="color:red"></p>
+	                                	<div class="col-lg-3">
+		                                    <form role="form">
+		                                        <div class="form-group">
+		                                            <label>{{_"Question"}}</label>
+		                                            <input class="form-control" id="question">
+		                                        </div>
+		                                    </form>
+		                                </div>
+		                                <div class="col-lg-4">
+		                                    <form role="form">
+		                                        <div class="form-group">
+		                                            <label>{{_"Question"}}</label>
+		                                            <select class="form-control" id="par_tag">
+		                                            	<option style="display:none">{{_"Select Parent_Tag"}}</option>
+		                                            	{{#each getParentTag}}
+			                                        		<option value="{{_id}}">{{title}}</option>
+		                                            	{{/each}}
+			                                        </select>
+		                                        </div>
+		                                    </form>
+		                                </div>
+		                                <div class="col-lg-4">
+		                                    <form role="form">
+		                                        <div class="form-group">
+		                                            <label>{{_"Question_Image"}}</label>
+		                                            <input type="file" id="img_quest">
+		                                        </div>
+		                                    </form>
+		                                </div>
+		                                <div class="col-lg-1">
+		                                	<form role="form">
+			                                	<div class="form-group">
+		                                             <button type="submit" id="add-question" class="btn btn-primary pull-right btn-sm" style="margin-right: -20px; margin-top: 15px;">{{_"add question"}}</button>
+		                                        </div>
+		                                    </form>
+		                                </div>
+		                            </div>
+		                            <div class="col-lg-12">
+		                            	<p id="answer_required" style="color:red"></p>
+		                                <div class="col-lg-3">
+		                                    <form role="form">
+		                                        <div class="form-group">
+		                                            <label>{{_"Answer"}}</label>
+		                                            <input class="form-control" id="answer">
+		                                        </div>
+		                                    </form>
+		                                </div>
+		                                <div class="col-lg-4">
+		                                    <form role="form">
+		                                        <div class="form-group">
+		                                            <label>{{_"Answer_Tag"}}</label>
+		         
+			                                        <!-- <input class="form-control" id="alltag_input" required/> -->
+													<select id="ans_tag" class="form-control">
+														<option value="">Choose tag</option>
+														{{#each getAnsTag}}
+															<option value="{{tag_quizz}}">{{tag_quizz}}</option>
+														{{/each}}
+													</select>
+			                                         <button id="btnAdd" class="btn btn-primary pull-right btn-sm">{{_"add Tag"}}</button>
+
+		                                        </div>
+		                                    </form>
+		                                </div>
+		                                <div class="col-lg-4">
+		                                    <form role="form">
+		                                        <div class="form-group">
+		                                            <label>{{_"Answer_Image"}}</label>
+		                                            <input type="file" id="img_answer">
+		                                        </div>
+		                                    </form>
+		                                </div>
+		                                <div class="col-lg-1">
+		                                	<form role="form">
+			                                	<div class="form-group">
+		                                             <button type="submit" id="add-answer" class="btn btn-primary pull-right btn-sm" style="margin-right: -13px; margin-top: 15px;">{{_"add answer"}}</button>
+		                                        </div>
+		                                    </form>
+		                                </div>
+		                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                        <div class="col-lg-12" style="margin-right:10px;background:#F2F2F2">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-striped tbodyquestion" style="padding-right:30px;">
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+                <div class="col-lg-12">
+                    <input type="button" id="btn-save" value="{{_"Submit"}}" class="btn btn-primary btn-md pull-right" style="margin-bottom: 5px;margin-top: 5px;">
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+
+        <!-- /#page-wrapper -->
+        <div style="margin-bottom:20px;" class="container" dir="{{getDirection}}">
+        	<h4>Answers Tag</h4>
+        	{{#each listTag}}
+        	<div class="col-sm-3">
+	        	<div class="alert alert-success">
+					<a href="#" id="quizzDelete" data-value="{{answer_tag}}">&times;</a>
+					 {{answer_tag}}
+				</div>
+			</div>
+        	{{/each}}
+        </div>
+</template>

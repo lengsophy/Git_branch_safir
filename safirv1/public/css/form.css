@@ -1,0 +1,127 @@
+
+.big-wrapper-form{
+	padding: 0px 50px 0px 50px;
+}
+.form-forum{
+ font-weight: 500;
+ font-size: 22px;
+ padding-top: 30px;
+}
+.wrap-form{
+	padding-top: 40px;
+}
+.text-form{
+	padding-top: 15px;
+	font-weight: 700;
+}
+.clear-fix{
+	clear: both;
+}
+.well-form{
+	background-color: #e2e4dd;
+    border: 1px solid #e3e3e3;
+    border-radius: 0;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+    margin-bottom: 20px;
+    min-height: 20px;
+    padding: 19px;
+}
+.space-well-form{
+	margin-top: 20px;
+}
+
+.text-form-bold{
+   font-weight: 700;
+   padding-left: 20px;
+}
+.input-form-space{
+	padding-top: 15px;
+}
+.form-control {
+    background-color: #e2e4dd;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    display: block;
+    font-size: 14px;
+    height: 34px;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+}
+.btn_send-form {
+    -moz-user-select: none;
+    background: #00a3d2 none repeat scroll 0 0;
+    border: 0 none;
+    border-radius: 0;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 1em;
+    line-height: 1.42857;
+    margin-top: 20px;
+    padding: 0 20px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.glyphicon-font{
+	padding-top: 20px;
+	cursor: pointer;
+}
+.forum ul.list-inline li a {
+    color: #000000;
+}
+.bg-form{
+	background: #00a3d2;
+	border-radius: 10px;
+}
+.bg-form-grey{
+	background: #e2e4dd;
+	border-radius: 10px;
+}
+.bg-form-a{
+	background: #00a3d2;
+	border-radius: 10px;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+.bg-form-grey-a{
+	background: #e2e4dd;
+	border-radius: 10px;
+	margin-top: 10px;
+}
+.bg-form{
+	margin-left: 10px;
+}
+.bg-form-grey{
+	margin-left: 20px;
+}
+.form-control-forum {
+    background-color: #e2e4dd;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    display: block;
+    font-size: 14px;
+    height: 34px;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+}
+.forum-sub-cat li{
+    font-size: 14px;
+    font-weight: 900;
+    margin-right: 30px;
+
+}
+
+
+

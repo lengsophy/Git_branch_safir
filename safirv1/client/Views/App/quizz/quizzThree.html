@@ -1,0 +1,96 @@
+<template name= "quizzthree">
+	<div class="section">
+			<div class="container">
+					<div class="container">
+						<div class="quick_view">
+						<!-- Trigger the modal with a button -->
+						  <button type="button" class="btn btn-default center-block" data-toggle="modal" data-target="#quizz" id="quizzpop"></button>
+						  <!-- Modal -->
+						  <div class="modal" id="quizz" role="dialog">
+						<div class="modal-dialog modal-lg">
+					  <!-- Modal content-->
+					  <div class="modal-content">
+						<div class="clearfix"></div>
+						<div class="modal-content1 img-responsive">
+							<div class="modal-header">
+								<div class="header-popup">
+									<div class="col-xs-4 col-md-4">
+										<img src="/images/safir.png" class="logo1 img-responsive pull-left">
+									</div>
+									<div class="col-xs-4 col-md-4">
+										<img src="/images/3sum-icons.png" class="logo-3icon center-block img-responsive">
+									</div>
+									<div class="col-xs-4 col-md-4">
+										<h2 class="write text-right lip">Lips</h2>
+									</div>
+								</div>
+							</div>
+								<div class="modal-body">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="section1-question">
+											<div class="col-md-12">
+												<h3 class="question text-center">What is your skin color :</h3>
+											</div>
+										</div>
+										<div class="list-color">
+											<div class="col-md-12  col-xs-12">
+												<ul class="list-inline skin-color">
+													<li class="col-xs-2">
+														<div class="white-color click_show_border"></div>
+														<p class="title-color">Pale white or freckled</p>
+													</li>
+													<li class="col-xs-2">
+														<div class="white-color click_show_border"></div>
+															<p>White</p>
+													</li>
+													<li class="col-xs-2">
+														<div class="Light-Brown click_show_border"></div>
+															<p>Light Brown</p>
+													</li>
+													<li class="col-xs-2">
+														<div class="Moderate-brown click_show_border"></div>
+															<p>Moderate brown</p>
+													</li>
+													<li class="col-xs-2">
+														<div class="Brown click_show_border"></div>
+															<p>Brown</p>
+													</li>
+													<li class="col-xs-2">
+														<div class="Brown click_show_border"></div>
+															<p>Black</p>
+													</li>
+												</ul>
+											</div>
+										</div>
+										<div class="section3">
+											<div class="col-md-3 col-md-offset-4">
+												<button class="btn btn-block btn-Begins btn-color" type="button">Submit </button>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					  </div>					  
+					</div>
+						  </div><!--/ end model -->
+						</div>
+					</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".click_show_border").click(function(){
+					var classAttr = $(this).attr('class');
+					if(classAttr.match('border-click')){
+						$(this).removeClass("border-click");
+					}else{
+						$(this).addClass("border-click");
+					}
+				});
+			});
+		</script>
+</template>

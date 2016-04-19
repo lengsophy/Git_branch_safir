@@ -1,0 +1,107 @@
+<template name="addlistproduct">
+	<div class="container">
+		<form role="form" class="form-horizontal">
+
+	<div class="form-group">
+		<label class="control-label col-sm-3" for="title">Title <span style="color:red">*</span></label>
+		<div class="col-sm-7">
+			<input type="title" name="title" id="title" class="form-control input-sm" placeholder="Title" value="{{title}}"  >
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="control-label col-sm-3" for="code">Type <span style="color:red">*</span></label>
+		<div class="col-sm-7">
+			<select class="form-control" id="type">
+				{{#if _id}}
+				<option value="{{type}}" style="display:none">{{type}}</option>
+				<option value="general">general</option>
+				<option value="promote">promoted</option>
+				{{else}}
+				<option value="">==Please Select type==</option>
+				
+				<option value="general">general</option>
+				<option value="promote">promoted</option>
+				{{/if}}
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group" >
+		<label class="control-label col-sm-3" for="product">Product <span style="color:red">*</span></label>
+		<div class="col-sm-7" >
+			<select class="form-control" id="product">
+				<option value="">==Please add product==</option>
+				{{#each getProduct}}
+					<option value="{{_id}}">{{title}}</option>
+				{{/each}}
+			</select>
+		</div>
+	
+	<div class="col-sm-offset-1 col-sm-1">
+			<input  value="Add" id="btnAdd" class="btn btn-primary btn-block">
+	</div>
+</div>
+
+	 <div class="form-group">
+
+			<div class="form-group">
+				<div class="col-sm-9" style="padding-top:20px">
+							<table class="table table-bordered table-hover table-striped">
+								<thead>
+									<tr>
+										<th class="text-center" style="width:35%">Products</th>
+										<th class="text-center" style="width:15%" colspan="4">Tools</th>
+									</tr>
+								</thead>
+								<tbody>
+
+									{{#each getListPro}}
+									<tr>
+										<td>{{title}}</td>
+										<td><a class="glyphicon glyphicon-trash center-block" href="" id="removeSes"></a></td>
+									</tr>
+									{{/each}}
+								</tbody>
+							</table>
+				</div>
+			</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-2">
+			<input type="hidden" value="{{_id}}" id="value_hidden">
+			<input  value="Submit" id="btnSubmit" class="btn btn-primary btn-block">
+		</div>
+		<div class="col-sm-offset-3 col-sm-2">
+			<input type="button" id="clear" value="Clear" class="btn btn-primary btn-block">
+		</div>
+		<div class="form-group">
+				<div class="col-sm-12" style="padding-top:20px">
+							<table class="table table-bordered table-hover table-striped">
+								<thead>
+									<tr>
+										<th class="text-center" style="width:35%">Title</th>
+										<th class="text-center" style="width:35%">Type</th>
+										<th class="text-center" style="width:35%">Products</th>
+										<th class="text-center" style="width:15%" colspan="4">Tools</th>
+									</tr>
+								</thead>
+								<tbody>
+									{{#each getListProduct}}
+									<tr>
+										<td>{{title}}</td>
+										<td>{{type}}</td>
+										<td>{{getProcount products}}</td>
+										<td><a class="glyphicon glyphicon-trash center-block" href="" id="remove"></a></td>
+										<td><a id="editListpro" class="glyphicon glyphicon-edit center-block" href="/updatelistproduct/{{_id}}"></a></td>
+									</tr>
+									{{/each}}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>

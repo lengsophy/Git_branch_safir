@@ -1,0 +1,97 @@
+<template name="instagrampage">
+    <div class="section" id="popuplogininsta">
+        <div class="container">
+            <div class="modal alert main-insta" id="instaModal"  role="dialog" aria-labelledby="myModalLabel" style="overflow:hidden;" aria-hidden="true">
+                <div class="modal-dialog bg-modal" role="document">
+                    <div class="modal-content bg-instagram">
+                        <div class="modal-body">
+                            <div class="popup">
+                            	<div class="row">
+									<img src="images/x-close-insta.png" class="img-responsive pull-right close-instagram" width="5%" height="5%">
+								</div>
+                                <div class="col-xs-6 col-md-5">
+                                    <img src="images/instagram-icon.png" class="pull-right img-responsive" height="30%" width="30%">
+                                </div>
+                                <div class="col-xs-6 col-md-6">
+                                    <img src="images/new-instagram-icon.png" class="img-responsive img-insta" width="65%">
+                                </div>
+                                <div class="col-xs-6 col-xs-offset-4 col-md-4 col-md-offset-4">
+                                    <div class="btn btn-instagram btn-block" id="insta-login-instagram" style="margin-top:30px;">LOGIN</div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-12">
+                                <div class="ask-me">
+                                    <a href="#" id="askmeletter" style="color:#fff">Ask Me Letter</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--====================-->
+    <div class="section">
+        <div class="container">
+            <div class="modal alert" id="instaModalcomfirm"  role="dialog" aria-hidden="true" aria-labelledby="instaModalcomfirm" style="overflow:hidden;">
+                <div class="modal-dialog bg-modal" role="document">
+                    <div class="modal-content comfirinstagram">
+                        <div class="header-popup">
+                        	<div class="col-xs-12 col-md-12">
+									<img src="images/x-close-insta.png" class="img-responsive pull-right close-instagram-infor" width="5%" height="5%">
+							</div>
+                            <div class="col-xs-6 col-md-5">
+                                <a href="">
+                                    <img src="images/instagram-icon.png" class="pull-right img-responsive" height="30%" width="30%">
+                                </a>
+                            </div>
+                            <div class="col-xs-6 col-md-6">
+                                <a href="">
+                                    <img src="images/new-instagram-icon.png" class="img-responsive img-insta" width="65%">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="popup">
+                                <form class="form-horizontal" role="form">
+                                    {{#if registerinstaError}}
+                                    <div class="alert alert-danger" style="padding:15px;" role="alert">
+                                        <span style="display:inline-block" class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                        <span style="display:inline-block" class="sr-only">Error:</span> {{registerinstaErrormsg}}
+                                    </div>
+                                    {{/if}}
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-3 col-sm-3" for="FirstName">FirstName :</label>
+                                        <div class="col-xs-7 col-sm-7">
+                                            <input type="text" class="form-control" id="FirstName" placeholder="FirstName">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-3 col-sm-3" for="LastName">LastName :</label>
+                                        <div class="col-xs-7 col-sm-7">
+                                            <input type="text" class="form-control" id="LastName" placeholder="LastName">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-3 col-sm-3" for="Email">Email :</label>
+                                        <div class="col-xs-7 col-sm-7">
+                                            <input type="text" class="form-control" id="Email" placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-3 col-xs-offset-3 col-sm-3 col-sm-offset-3">
+                                            <button class="btn btn-instagram btn-block" id="comfirminformatinsta">Save</button>
+                                        </div>
+                                        <a href="#">
+                                            <label class="control-label col-xs-4 col-sm-4 text-right" id="skipinsta">Skip</label>
+                                        </a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

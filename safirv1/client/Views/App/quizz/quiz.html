@@ -1,0 +1,379 @@
+<template name="quiz">
+    <section class="wrapper-first-con">
+        <div class="container" style="margin-bottom: 20px;">
+            <div class="col-md-12">
+                <div class="space-top" style="margin-top:30px;">
+                    <div class="col-md-3">
+                        <div class="well-profile">
+                            <div class="">
+                                {{#with getprofile}}
+                                <img src="{{getImg image}}" class="img-responsibve" width="100%"> {{/with}}
+                            </div>
+                            <div class="hover-profile">
+                                <ul class="text-center">
+                                    <li><a href="/profile">{{_"PROFILE"}}</a></li>
+                                    <li><a href="/member">{{_"MEMBER DETAIL"}}</a></li>
+                                    <li><a href="/reward">{{_"REWARDS"}}</a></li>
+                                    <li><a href="/quiz">{{_"QUIZ AFFINITY"}}</a></li>
+                                </ul>
+                            </div>
+                            <div class="text-center">
+                                <h1 class="h1">{{#with getprofile}}{{profile.shipcard.point}}{{/with}} {{_ "Points"}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="wapper-member-title">
+                            <h1 class="member-pro">{{_"QUIZ AFFINITY"}}</h1>
+                            <p class="member-text">{{_"Fait une belle rencontre avec un makeup qui te correspond"}}</p>
+                        </div>
+                        <div class="wapper-member">
+                            <div class="pull-left">
+                                <img src="../images/quiz-img.png" class="img-responsive pull-left" width="200" height="200">
+                            </div>
+                            <div class="text-member-all">
+                                <p class="quiz-description">Because we know that in a sea of ​​makeup it's sometimes hard to navigate, especially on the web! So with few clicks the Safir quiz allows you, to sort products that fits you. Webzines or tutorials are also suggested. When you validate a quiz we will propose you some suggestions for a better feeling. Of course you can change your mind at any moment and redo the quiz to discover new products. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 space-top-quiz">
+                    <div class="col-md-12 space-top-quiz">
+                        <div class="bg-about-quiz" style="height:330px;">
+                            <div class="wrapp-quiz">
+                                <div class="col-md-3">
+                                    <div class="panel-quiz panel-default">
+                                        <div class="panel-heading">
+                                            <h5 class="text-center quiz-head-text"> {{_"Are you a"}} :</h5>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div>
+                                                <input type="radio" name="gender" value="man" {{isChekman}}>
+                                                <label>Man</label>
+                                            </div>
+                                            <div>
+                                                <input type="radio" name="gender" value="woman" {{isChekwoman}}>
+                                                <label>Woman</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="panel-quiz panel-default">
+                                        <div class="panel-heading">
+                                            <h5 class="quiz-head-text"> {{_"How do feel your skin"}} :</h5>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="radio-skin">
+                                                <input type="radio" value="dry" name="skintype" {{isChekdry}}>
+                                                <label>Dry</label>
+                                            </div><br/>
+                                            <div class="radio-skin">
+                                                <input type="radio" value="oily" name="skintype" {{isChekoily}}>
+                                                <label>Oily</label>
+                                            </div><br/>
+                                            <div class="radio-skin">
+                                                <input type="radio" name="skintype" value="combination" {{isChekcombination}}>
+                                                <label>Combination</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="panel-quiz panel-default">
+                                        <div class="panel-heading">
+                                            <h5 class="text-center quiz-head-text"> {{_"Your skin is"}} :</h5>
+                                        </div>
+                                        <div class="panel-body text-center">
+                                            <ul class="bxslider">
+                                                <li>
+                                                    <a href="#" id="link-sl" data-value="pale white or freckled">
+                                                        <img src="images/slide1.png" name="skin" value="pale white or freckled" class="img-responsive sl">
+                                                        <p>Pale white or freckled</p>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" id="link-sl" data-value="white">
+                                                        <img src="images/skin_tone-01.png" name="skin" value="white" class="img-responsive sl">
+                                                        <p>White</p>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" id="link-sl" data-value="light brown">
+                                                        <img src="images/skin_tone-02.png" name="skin" value="light brown" class="img-responsive sl" {{isChekshort}}>
+                                                        <p>Light Brown</p>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" id="link-sl" data-value="moderate brown">
+                                                        <img src="images/skin_tone-03.png" name="skin" value="moderate brown" class="img-responsive sl" {{isChekshort}}>
+                                                        <p>Moderate Brown</p>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" id="link-sl" data-value="brown">
+                                                        <img src="images/skin_tone-04.png" name="skin" value="brown" class="img-responsive sl" {{isChekshort}}>
+                                                        <p>Brown</p>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" id="link-sl" data-value="black">
+                                                        <img src="images/skin_tone-05.png" name="skin" value="black" class="img-responsive sl" {{isChekshort}}>
+                                                        <p>Black</p>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="panel-quiz panel-default">
+                                    <div class="panel-heading">
+                                        <h5 class="quiz-head-text"> {{_"How define yourself"}} :</h5>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div>
+                                            <input class="style-input" type="radio" name="sensitive" value="pop" {{isChekpop}}>
+                                            <label>Pop</label>
+                                        </div>
+                                        <div>
+                                            <input class="style-input" type="radio" name="sensitive" value="naturel" {{isCheknaturel}}>
+                                            <label>Naturel</label>
+                                        </div>
+                                        <div>
+                                            <input class="style-input" type="radio" name="sensitive" value="sophisticated" {{isCheksophisticated}}>
+                                            <label>Sophisticated</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn-update-quiz  pull-right" style="margin-right:18px;">{{_"Update"}}</button>
+                        </div>
+                    </div>
+                    <h3 class="pull-right h3-quiz-text">{{_"Basic questions that will allow us to improve the results of your quiz"}}</h3>
+                </div>
+                {{#each allQuizz}} {{#if hasCompleted _id}}
+                <div class="col-md-6 space-top-quiz">
+                    <div class="main-header">
+                        <h3 class="white-header">{{name}}</h3>
+                    </div>
+                    <div class="bg-perfume-quiz" style="height:358px;">
+                        <div class="wrapp-quiz-a">
+                            <div class="col-xs-8 col-xs-offset-2">
+                                <a href="/suggestpages/{{_id}}">
+                                    <button class="btn-quiz1 btn-block" type="button">{{_"Suggested products"}}</button>
+                                </a>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class=" col-md-12 space-md-quiz">
+                                <a id="id_sucgested" href="/quizzQA/{{_id}}">
+                                    <button class="btn-quiz2 pull-right" type="button">
+                                        {{_"Redo the quiz"}}
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{else}}
+                <div class="col-md-6 space-top-quiz">
+                    <div class="bg_head_quiz_image">
+                        <h3 class="white-header">{{name}}</h3>
+                    </div>
+                    <div class="bg-body-quiz" style="height:358px;">
+                        <div class="wrapp-quiz-a">
+                            <div class="col-xs-8 col-xs-offset-2">
+                                <a href="/quizzQA/{{_id}}">
+                                    <button class="btn-quiz1 btn-block" type="button">{{_"Beginning the quiz"}}</button>
+                                </a>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class=" col-md-12">
+                                <h3 class="text-center hair-text-quiz"> {{_"Discovers beauty product fits for you"}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/if}} {{/each}}
+            </div>
+        </div>
+    </section>
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        effect: 'flip',
+        grabCursor: true,
+        nextButton: '#swiper-quiz-next',
+        prevButton: '#swiper-quiz-prev'
+    });
+    </script>
+    <script>
+    $('.bxslider').bxSlider({
+        infiniteLoop: false,
+        hideControlOnEnd: true
+    });
+    </script>
+    <script>
+    $(document).ready(function() {
+        $(".search-push-left").hide();
+        var isOn = true;
+        $(function() {
+            $("#btn-all").click(function() {
+                console.log(isOn);
+                if (isOn) {
+                    isOn = false;
+                    $('.search').css("width", '45%');
+                    $(".search-push-left").hide();
+                } else {
+                    isOn = true;
+                    $('.search').css("width", '72%');
+                    $(".search-push-left").show();
+                }
+                return false;
+            });
+        });
+    });
+    </script>
+    <script>
+    $(document).ready(function($) {
+        $('.megamenu').megaMenuCompleteSet({
+            menu_speed_show: 300, // Time (in milliseconds) to show a drop down
+            menu_speed_hide: 200, // Time (in milliseconds) to hide a drop down
+            menu_speed_delay: 200, // Time (in milliseconds) before showing a drop down
+            menu_effect: 'hover_fade', // Drop down effect, choose between 'hover_fade', 'hover_slide', etc.
+            menu_click_outside: 1, // Clicks outside the drop down close it (1 = true, 0 = false)
+            menu_show_onload: 0, // Drop down to show on page load (type the number of the drop down, 0 for none)
+            menu_responsive: 1 // 1 = Responsive, 0 = Not responsive
+        });
+    });
+    </script>
+</template>
+<!-- <div class="main-header">
+          <h3 class="white-header">About You</h3>
+        </div> -->
+<!-- <div class="bg-about-quiz" style="height:304px;">
+          <div class="wrapp-quiz1">
+
+            <div class="col-md-3">
+              <div class="panel panel-default" style="padding-bottom: 48px;">
+                <div class="panel-heading-quiz">
+                  <h5 class="quiz-head-text white text-center"> {{_"Are you a"}} : </h5>
+                </div>
+                <div class="panel-body-quiz button-holder chgender">
+                 <label class="radio-quiz">
+                  <input type="radio" name="gender" value="man" {{isChekman}}>
+                  <span class="outer">
+                    <span class="inner"></span>
+                  </span>Man
+                </label>
+                <label class="radio-quiz">
+                  <input type="radio" name="gender" value="woman" {{isChekwoman}}>
+                  <span class="outer"><span class="inner"></span></span>Woman
+                </label> 
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="panel panel-default" style="padding-bottom: 2px;">
+              <div class="panel-heading-quiz">
+                <h5 class="quiz-head-text white text-center"> {{_"How do you feel your skin"}} : </h5>
+              </div>
+              <div class="panel-body-quiz button-holder">
+                <div>
+                  <label class="radio-skin">
+                    <input type="radio" name="skintype" value="dry" {{isChekdry}}>
+                    <span class="outer">
+                      <span class="inner"></span>
+                    </span>Dry
+                  </label>
+                </div>
+                <div>
+                  <label class="radio-skin">
+                    <input type="radio" name="skintype" value="oily" {{isChekoily}}>
+                    <span class="outer"><span class="inner"></span></span>Oily
+                  </label>
+                </div> 
+                <div>
+                  <label class="radio-skin">
+                    <input type="radio" name="skintype" value="combination" {{isChekcombination}}>
+                    <span class="outer">
+                      <span class="inner"></span>
+                    </span>Combination
+                  </label>
+                </div> 
+              </div>
+
+            </div>
+          </div>
+
+
+          <div class="col-md-3">
+            <div class="panel panel-default" style="padding-bottom: 18px;">
+              <div class="panel-heading-quiz">
+                <h5 class="quiz-head-text white text-center"> {{_"Your skin is"}} : </h5>
+              </div>
+              <div class="panel-body-quiz button-holder">
+               <label class="radio-quiz">
+                <input type="radio" name="skin" value="straight" {{isChekstraight}}>
+                <span class="outer" >
+                  <span class="inner"></span>
+                </span>Straight
+              </label>
+              <label class="radio-quiz">
+                <input type="radio" name="skin" value="curly" {{isChekcurly}}>
+                <span class="outer"><span class="inner"></span></span>Curly
+              </label> <br>
+              <label class="radio-quiz">
+                <input type="radio" name="skin" value="short" {{isChekshort}}>
+                <span class="outer"><span class="inner"></span></span>Short
+              </label>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="panel panel-default" style="padding-bottom: 3px;">
+            <div class="panel-heading-quiz">
+              <h5 class="quiz-head-text white text-center"> {{_"How you define yourself"}} : </h5>
+            </div>
+            <div class="panel-body-quiz button-holder">
+              <div>
+                <label class="radio-skin">
+                  <input type="radio" name="sensitive" value="pop" {{isChekpop}}>
+                  <span class="outer">
+                    <span class="inner"></span>
+                  </span>Pop
+                </label>
+              </div>
+              <div>
+                <label class="radio-skin">
+                  <input type="radio" name="sensitive" value="naturel" {{isCheknaturel}}>
+                  <span class="outer">
+                    <span class="inner"></span>
+                  </span>Naturel
+                </label>
+              </div>
+              <div>
+                <label class="radio-skin">
+                  <input type="radio" name="sensitive" value="sophisticated" {{isCheksophisticated}}>
+                  <span class="outer">
+                    <span class="inner"></span>
+                  </span>Sophisticated
+                </label>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-12">
+        <button class="btn-update-quiz  pull-right">{{_"Update"}}</button>
+      </div>
+    </div> -->

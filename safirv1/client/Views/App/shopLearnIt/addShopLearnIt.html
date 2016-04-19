@@ -1,0 +1,55 @@
+<template name="addShopLearnIt">
+	<div id="wrapper">
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Add Shop Learn It
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Dashboard
+                            </li>
+                        </ol>
+                    </div>
+					<div class="col-xs-12 col-sm-6 col-md-8">
+						<form role="form" class="form-horizontal">
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="location">Categories <span style="color:red">*</span></label>
+								<div class="col-sm-9">
+									<select class="form-control" id="category" required>
+										<option value="0">Please choose category </option>
+										{{#each getCategories}}
+										<option value="{{_id}}">{{title}}</option>
+										{{/each}}
+									 </select>
+								</div>
+							</div>	
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="title">Image <span style="color:red">*</span></label>
+								<div class="col-sm-9">
+									<input type="file" name="image" id="image" placeholder="image" required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="desc">PDF Image <span style="color:red">*</span></label>
+								<div class="col-sm-9">
+									<input type="file" name="pdf_image" id="pdf_image" placeholder="image" required>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-3 col-sm-2">
+									<input type="button" value="Add" id="btnAdd" class="btn btn-primary btn-block">
+								</div>
+							</div>
+						</form>
+					</div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+</template>

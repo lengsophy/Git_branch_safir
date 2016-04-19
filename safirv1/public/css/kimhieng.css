@@ -1,0 +1,363 @@
+/*/ Custom, iPhone Retina /*/ 
+@media only screen and (min-width : 320px) {
+		img.logo{
+		width:25%;
+		text-align:center;
+		padding:0px;
+	}
+	img.logo-3icon{
+		width:85%;
+		text-align:center;
+		padding:13px 0px;
+	}
+	img.logo1{
+		width:85%;
+		text-align:center;
+		padding:5px 0px;
+	}
+	.header-popup h2{
+		font-size:24px;
+		margin:5px 0px;
+	}
+}
+/*/ Extra Small Devices, Phones /*/ 
+@media only screen and (max-width : 480px) {
+	
+}
+/*/ Small Devices, Tablets /*/
+@media only screen and (min-width : 768px) {
+	img.logo{
+		width:15%;
+		text-align:center;
+		padding:0px;
+	}
+	img.logo-3icon{
+		width:55%;
+		text-align:center;
+		padding:16px 0px;
+	}
+	img.logo1{
+		width:55%;
+		text-align:center;
+		padding:5px 0px;
+	}
+	.header-popup h2{
+		font-size:28px;
+		margin:17px 0px;
+	}
+}
+/*/ Medium Devices, Desktops /*/
+@media only screen and (min-width : 992px) {
+}
+/*/ Large Devices, Wide Screens /*/
+@media only screen and (min-width : 1200px) {
+	.container{
+		max-width:940px;
+	}
+	.modal-header{
+		padding:0px;
+	}
+	img.logo{
+		width:15%;
+		text-align:center;
+		padding:5px;
+	}
+	img.logo1{
+		width:30%;
+		float: left;
+		padding:5px 0px;
+	}
+	img.logo-3icon{
+		width:35%;
+		text-align:center;
+		padding:13px 0px;
+	}
+	.header-popup h2 {
+		margin: 30px 0px 0px 0px ;
+		font-size:24px;
+	}
+	.header-popup h2.lip {
+		margin: 20px 0px;
+		font-size:36px;
+	}
+	
+}
+/*--------------quizz
+.component{
+	background:#ddd;
+}
+.modal-header {
+	background:url('../images/hd.png')no-repeat;
+	border-radius:0px;
+	border:none;
+}
+.bg-popup1{
+	background:url('../images/bg.png')no-repeat;
+	background-size:100% 100%;
+}
+.modal-footer{
+	border:none;
+}
+.body-popup1{
+	padding:40px 0px;
+}
+.bg-white{
+	background:#fff;
+	padding:10px 10px;
+	opacity: 0.6;
+}
+.section1, .section2, .list-color {
+	overflow:hidden;
+}
+.section1{
+	padding:15px 0px;
+	margin-bottom:20px;
+	margin-top:50px;
+}
+.section2{
+	padding:15px 15px;
+	margin-bottom:30px;
+}
+.section2 img{
+	float:right;
+}
+.section3{
+	padding:15px 0px;
+	overflow:hidden;
+}
+----------------Pop UP 1---------------------------------
+.bg-popup2{
+	background:url('../images/background-pink-black.png')no-repeat;
+	background-size:100% 100%;
+	overflow: hidden;
+}
+.logo1{
+	padding:10px 0px;
+}
+.section1-question{
+	padding:15px 0px;
+	margin-bottom:30px;
+	margin-top:30px;
+}
+.answer-radia{
+	overflow:hidden;
+	text-align:center;
+}
+.radio {
+  display: inline-block;
+  padding-right: 20px;
+  font-size: 18px;
+  line-height: 25px;
+  cursor: pointer;
+  text-align:center;
+}
+
+.radio:hover .inner {
+  -webkit-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  transform: scale(0.5);
+  opacity: .5;
+}
+
+.radio input {
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.radio input:checked + .outer .inner {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+.radio input:checked + .outer { border: 3px solid #fff; }
+
+.radio input:focus + .outer .inner {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+  background-color:#363639;
+}
+.radio .outer {
+  width: 20px;
+  height: 20px;
+  display: block;
+  float: left;
+  margin: 5px 9px 10px 10px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.radio .inner {
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  width: 14px;
+  height: 14px;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  display: block;
+  border-radius: 50%;
+  background-color: #363639;
+  opacity: 0;
+}
+/*----------------------popup 4------------------------------------
+#modal-dialog{
+	margin: 30px auto;
+    width: 70%;
+}
+.list-color{
+	margin-top:60px;
+}
+
+.white-color{
+	border-radius:50%;
+	background:#f8e2e6;
+	height:100px;
+	width:100px;
+	margin:0px auto; 
+}
+.Light-Brown{
+	border-radius:50%;
+	background:#efddc8;
+	height:100px;
+	width:100px;
+	margin:0px auto;
+}
+.Moderate-brown{
+	border-radius:50%;
+	background:#ddba93;
+	height:100px;
+	width:100px;
+	margin:0px auto;
+}
+.Brown{
+	border-radius:50%;
+	background:#755022;
+	height:100px;
+	width:100px;
+	margin:0px auto;
+}
+.Black{
+	border-radius:50%;
+	background:#4d3313;
+	height:100px;
+	width:100px;
+	margin:0px auto; 
+}
+.border-click{
+	border-radius:50%;
+	border:8px solid #fff;
+	height:100px;
+	width:100px;
+}
+ul.list-inline li p{
+	text-align: center;
+	margin-top:15px;
+	font-weight:bold;
+}
+ul.list-inline li p.title-color{
+	margin-left:-10px;
+	margin-right:-10px;
+}
+.btn-color{
+	margin-left:40px;
+	margin-top:30px;
+}
+/*component*/
+body{
+	margin:0px;
+	padding:0px;
+	font-family:Arial, heverticaNue, sans-serif; 
+}
+h1, h2, h3, h4, h5, h6{ color:#000000; padding:0px; margin: 0px 0px 15px 0px; font-family:Arial, heverticaNue, sans-serif; }
+h1{
+	font-size: 50px;
+	line-height: 50px;
+	font-weight:bold
+}
+h2{
+	font-size: 38px;
+	line-height: 38px;
+	font-weight:bold
+}
+h2.write{
+	color:#fff;
+}
+h3{
+	font-size: 24px;
+	line-height: 24px;
+	font-weight:bold;
+}
+h4{
+	font-size: 20px;
+	line-height: 20px;
+	font-weight:bold;
+}
+h5{
+	font-size: 16px;
+	line-height: 16px;
+	font-weight:bold;
+}
+.section1 p, .section2 p, .section1-question p, .answer{
+	font-family:Arial, heverticaNue, sans-serif; 
+	font-weight:bold;
+	font-size: 17px;
+	color:#000;
+}
+.btn-ask{
+	background:#f1c3cf;
+	border-radius: 4px;
+	font-weight:bold;
+	font-size:20px;
+	margin-bottom:15px;
+}
+.btn-Begins{
+	background:url('../images/btn-quiz1.png')no-repeat;
+	background-size:100% 100%;
+	border-radius: 4px;
+	font-weight:bold;
+	font-size:20px;
+	padding:10px 35px;
+	margin-bottom:15px;
+}
+.btn:active{
+	background:#d47aaf;
+	color:#333333;
+}
+/*---------------------Kimhieng Button of Sport_1------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

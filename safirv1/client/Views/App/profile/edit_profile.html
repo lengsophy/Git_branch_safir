@@ -1,0 +1,223 @@
+<template name="editprofile">
+	<div class="container">
+		<div class="row container">
+		  <div class="col-md-4 first">
+		  	<div class="col-xs-12 col-sm-6 col-lg-3">
+				{{#each getprofile}}
+				<img style="border:1px solid #000; border-radius: 0px;" src="{{getImg image}}" class="img-rounded center-block" alt="Avatar" width="200" height="200">
+				{{/each}}
+			</div>
+			<div class="panel-heading">
+						{{_ "EDIT"}}
+					</div>
+					{{#if error_message}}
+					<div class="alert alert-danger" role="alert">
+						<span style="display:inline-block" class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+						<span style="display:inline-block" class="sr-only">Error:</span>
+						{{error_message}}
+					</div>
+					{{/if}}
+			<div class="col-xs-12 col-sm-6 col-lg-9">
+				<h1 style="font-weight:bold">{{#with getprofile}}{{profile.firstname}} {{profile.lastname}}{{/with}}</h1>
+				<small>{{profile.name}}</small>
+				<br><br><br><br>
+			</div>
+			<form role="form">
+				<label>{{_ "Profile Image"}}</label>
+				<div class="form-group"><br><br>
+					<input type="file" id="upload">
+				</div>	
+			</form>	  	
+		  </div>
+		  <div class="col-md-4 second">
+		    <div class="row">
+			<form role="form">
+				{{#each getprofile}}
+				<div class="form-group">
+					<label>{{_ "First name"}}</label>
+				<div class="input-group">
+			<input type="text" class="set-due-date form-control" value="{{profile.firstname}}" id="firstname" style="width: 100%;" >
+								</div>
+							</div>
+			<div class="form-group">
+				<label>{{_ "Last name"}}</label>
+			<div class="input-group ">
+				<input type="text" class="set-due-date form-control" value="{{profile.lastname}}" id="lastname" style="width: 100%;">
+				</div>
+			</div>
+			<div class="form-group">
+				<label>{{_ "BIRTH DATE"}}</label>
+				<div class="input-group ">
+					<span class="input-group-addon "><i class="glyphicon glyphicon-calendar"></i></span>
+					<input id ="birth" dateformat="d M y" type="date" class="set-due-date form-control" value="{{profile.birth}}">
+					<span class="datepicker_label" style="pointer-events: none;"></span>
+				</div>
+
+			</div>
+			{{/each}}
+		</form>
+		    </div>
+		  </div>
+		  <div class="col-md-4 third">
+		    <form role="form">
+				{{#each getprofile}}
+				<div class="form-group" style="border-radius:0px;">
+					<label>{{_ "SEX"}}</label>
+					<select class="form-control" id="gender" 
+					style="border-radius: 0px;
+						    width: 36%;
+						    margin-left: 13px;">
+						<option value="{{profile.sex}}">{{profile.sex}}</option>
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
+					</select>
+				</div>
+				<div class="form-group col-sm-12">
+					<label>{{_ "ADDRESS"}}</label>
+						<textarea name="address" id="address" rows="8" cols="42" style="width: 104%;">{{profile.address}}</textarea>
+
+				</div>
+				<div class="form-group">
+					<label>{{_ "PHONE"}}</label>
+					<div class="input-group ">
+						<input type="text" class="set-due-date form-control" value="{{profile.phone}}" id="phone"	 style="width: 100%;">
+					</div>
+				</div>
+				<div class="form-group">
+					<label>{{_ "EMAIL"}}</label>
+					<div class="input-group ">
+						<input type="text" class="set-due-date form-control" value="{{profile.email}}" id="email"	 style="width: 100%;">
+					</div>
+				</div>
+				{{/each}}
+			</form>
+			<button class="btn btn-primary btn-sm" id="updateProfile" data-toggle="modal" data-target="#myModal" style="margin-bottom:1px;margin-left: 20%;border-radius:0px; width: 30%;">{{_ "EDIT"}}</button>
+			<a href="/profile">
+				<button type="submit" class="btn-sm"  id="close" style="border-radius:0px;    width: 30%;">{{_ "BACK"}}</button></a>
+		  </div>
+		 
+		</div>
+		 <hr style="border:1px solid #ccc;">
+	</div>
+
+
+
+	<!-- first popup -->
+		<div class="container">			
+			<div class="modal alert" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document" style="border-radius:none;">
+					<div class="modal-content">
+						<div class="modal-header header-win" style="padding: 11px;
+							margin-top: 30px;">
+							<div class="header-popup">
+								<button type="button" class="close" data-dismiss="modal">
+									<img src="/images/x-close.png" id="popup1" class="img-responsive pull-right" width="20%">
+								</button>
+							</div>
+						</div>
+						<div class="modal-body">
+							<div class="col-md-12">
+								<div class="col-md-8 col-md-offset-2">
+									<h3 class="title-win text-center">Congratulations you win your first Safir points</h3>
+								</div>
+								<div class="col-md-12">
+									<img src="/images/celebrate.png" class="img-responsive center-block" width="30%">
+								</div>
+								<div class="col-md-12">
+									<h3 class="win reward text-center">A lot of rewards to win</h3>
+								</div>
+								
+								<div class="col-md-12">
+									
+									<div class="col-md-5">
+										<div class="gift-image">
+											<img src="/images/gift.png" class="img-gift pull-right img-responsive" width="50%">
+										</div>
+									</div>
+									<div class="col-md-7">
+										<h3 class="win " style="margin-left:15px;">For more informations</h3>
+										<div class="col-md-10">
+											<div class="btn btn-block btn-win" style="padding: 3px 0px;">See my Reward page</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- end first popup -->
+	<!-- second popup -->
+		<div class="container">			
+			<div class="modal alert" id="myModal2" tabindex="-2" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document" style="border-radius:none;">
+					<div class="modal-content">
+						<div class="modal-header header-win" style="padding: 11px;
+							margin-top: 30px;">
+							<div class="header-popup">
+								<!-- <a href="/profile"> -->
+									<button type="button" class="close" >
+										<img src="images/x-close.png" id= "popup" class="img-responsive pull-right" width="20%">
+									</button>
+								<!-- </a> -->
+							</div>
+						</div>
+						<div class="modal-body">
+							<div class="col-md-12">
+								<h3 class="title-win text-center">Continue to earn more points</h3>
+								<div class="row">
+									<div class="instagram-share">
+										<div class="col-md-4">
+											<a href="">
+												<img src="images/follow-us-instagram.png" width="60%" style="margin: 10px 40px;">
+											</a>
+										</div>
+										<div class="col-md-8">
+											<h2 class="h2-points">+30 pt</h2>
+											<p class="points-description">Following us on <a href="" class="link-point">Instagram</a></p>
+										</div>
+									</div> <!-- instagram-share -->
+								</div>
+								<div class="row">
+									<div class="sharing-content">
+										<div class="col-md-4">
+											<a href="">
+												<img src="images/sharing-content.png" width="60%" style="margin: 10px 40px;">
+											</a>
+										</div>
+										<div class="col-md-8">
+											<h2 class="h2-points">+20 pt</h2>
+											<p class="points-description">Sharing content to friend and being sponsor by a friend</p>
+										</div>
+									</div> <!-- sharing-content -->
+								</div> <!-- row -->
+								<div class="row">
+									<div class="shop-online">
+										<div class="col-md-4">
+											<a href="">
+												<img src="images/shop-online.png" width="60%" style="margin: 10px 40px;">
+											</a>
+										</div>
+										<div class="col-md-8">
+											<h2 class="h2-points">+100 pt</h2>
+											<p class="points-description">Shop in the online store</p>
+										</div>
+									</div> <!-- shop-online -->
+								</div> <!-- row -->
+								<div class="row">
+									<div class="see-more-point">
+										<div class="col-md-5 col-md-offset-7">
+											<div class="btn btn-block btn-win" style="margin-bottom: 3px;">See my Member page</div>
+										</div>
+									</div>
+								</div>
+							</div> <!-- col-md-12 -->
+						</div> <!-- modal-body -->
+					</div> <!-- modal-content -->
+				</div>
+			</div>
+		</div>
+	<!-- end second popup -->
+
+</template>

@@ -1,0 +1,23 @@
+<template name="review">
+  <div class="hold_feedback">
+    <input type="hidden" id="reviwhidden" value="{{../_id}}">
+    <div  class="col-md-3">
+      <img src="{{getImages user}}" class="img-responsive center-block image{{user}}" style="width:50%;">
+      <h4 class="bold text-center {{user}}">{{getImageUser user}}</h4>
+    </div>
+    <div class="col-md-6">
+      <p><h2>{{title}}</h2>
+        {{comment}}
+      </p>
+    </div>
+    <div class="col-md-3 ">
+      <p style="margin-left: 1px;">{{getDate date}}</p>
+      <a href="#" style="font-weight:bold; color:#333; margin:5px 0px;padding:70px;"><span style="display: none">{{idreview}}</span><i class="fa fa-heart likereview"></i>{{{getRate grade}}}</a>
+    </div>
+  </div>
+  <style type="text/css">
+  .addheart{
+    color:red;
+  }
+  </style>
+</template>

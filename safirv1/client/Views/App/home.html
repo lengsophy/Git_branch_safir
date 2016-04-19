@@ -1,0 +1,478 @@
+<template name="home2">
+  <div class="hbg"> 
+    <div class="container">
+      <section id="slider" style="padding-bottom: 30px;">
+        <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1300px; height: 500px; overflow: hidden; visibility: hidden;">
+          <!-- Loading Screen -->
+
+          <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1300px; height: 500px; overflow: hidden;">
+            {{#each getbanner}}
+            <div data-p="225.00" style="display: none;">
+              <a href="{{url}}">
+                <img data-u="image" src="{{getImg imageId}}" alt="slide"/>
+              </a> 
+            </div>
+            {{/each}}
+          </div>
+          <!-- Bullet Navigator -->
+          <div data-u="navigator" class="jssorb05" style="bottom:16px;right:16px;" data-autocenter="1">
+
+            <div data-u="prototype" style="width:30px;height:35px;"></div>
+          </div>
+          <!-- Arrow Navigator -->
+          <span data-u="arrowleft" class="jssora22l" style="top:0px;left:12px;width:40px;height:58px;" data-autocenter="2"></span>
+          <span data-u="arrowright" class="jssora22r" style="top:0px;right:12px;width:40px;height:58px;" data-autocenter="2"></span>
+        </div>
+      </section><!--end section slider-->
+      <!-- CLIENT SLIDER STARTS-->
+      {{#with list1}}
+         <h1 class="text-center" style="font-weight:bold;margin-bottom: 34px;">{{title}}</h1>
+                <div class="carousel slide clients-carousel" id="clients-slider">
+                    <div class="carousel-inner">
+                      <!--{{#each products}}-->
+                          {{{oneSlide1 products}}}
+                    </div>
+                    <a data-slide="prev" href="#clients-slider" class="left carousel-control"></a>
+                    <a data-slide="next" href="#clients-slider" class="right carousel-control"></a>
+                </div>
+        {{/with}}
+      <!-- CLIENT SLIDER ENDS-->
+      {{#with list2}}
+        <h1 class="text-center" style="font-weight:bold;margin-bottom: 34px;">{{title}}</h1>
+        <div class="carousel slide clients-carousel" id="clients-slider1">
+            <div class="carousel-inner">
+                  {{{oneSlide2 products}}}
+            </div>
+            <a data-slide="prev" href="#clients-slider1" class="left carousel-control"></a>
+            <a data-slide="next" href="#clients-slider1" class="right carousel-control"></a>
+        </div>
+      {{/with}}       
+       {{#with list3}}
+        <h1 class="text-center" style="font-weight:bold;margin-bottom: 34px;">{{title}}</h1>
+        <div class="carousel slide clients-carousel" id="clients-slider2">
+            <div class="carousel-inner">
+                  {{{oneSlide3 products}}}
+            </div>
+            <a data-slide="prev" href="#clients-slider2" class="left carousel-control"></a>
+            <a data-slide="next" href="#clients-slider2" class="right carousel-control"></a>
+        </div>
+      {{/with}}       
+
+<!-- model quick view -->
+<!-- quickview -->
+
+<div class="modal" id="quickView" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-top:30px;">
+  {{#with getSelectedProduct}}
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="width: 150%; margin: 0px 0px 0px -150px !important;">
+      <div class="modal-content">
+        <div class="modal-header" style="background:#000; padding:0px;" >
+          <button type="button" class="close" data-dismiss="modal"><img src="/images/pop_cancel.png"></button>
+        </div>
+        
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-5">
+              <img  src="{{getImgForProduct _id}}" width="300px" height="300px" class="center-block">
+            </div>
+            <div class="col-md-7">
+              <div class="quick-detail">
+                <h2 class="title-quick-view">{{title}}</h2>
+                <p class="arab-font"> {{{description}}} </p>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <span>Qty</span> &nbsp;
+                  <select class="select-view" id="qty">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <a id="closeModal" href="/details/{{slug title}}"><button class="btn-moredetail-view left">{{_"MORE DETAIL"}}</button></a>
+                </div>
+
+                <div class="col-md-6">
+
+                  <h3 class="price-view" style="font-family: 'Nazanin Bold';">{{#with getListprice oldId}}{{price}}{{/with}}<span>ریال</span></h3>
+
+                </div>
+                <div class="col-md-6">
+                  <button class="btn-add-tocard left" id="addtocart">{{_"ADD TO CARD"}}</button>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <div class="col-md-12">
+            <hr style="border:1px solid #000;">
+          </div>
+        </div>
+        <div class="modal-footer center-block" style="border:none">
+          <div class="col-md-12">
+            <h4 class="pull-left">{{_"Related products"}}</h4>
+          </div>
+          
+          <div class="row">
+            
+                  {{>recommendation}}
+               
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
+  {{/with}}
+  <script>
+    $('.modal-backdrop').remove();
+  </script>
+</div>
+
+<!-- end -->    
+<script>
+  var numberslide=5; 
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    numberslide=3;
+  }
+  var swiper = new Swiper('.swiper-container3', {
+    nextButton: '#swiper4-next',
+    prevButton: '#swiper4-prev',
+    slidesPerView: numberslide,
+    loop:true,
+    paginationClickable: true,
+    spaceBetween: 5
+          //autoplay: 5000
+        });
+</script>
+<!--new slider-->
+<script>
+  jQuery(document).ready(function ($) {
+
+    var jssor_1_SlideoTransitions = [
+    [{b:5500,d:3000,o:-1,r:240,e:{r:2}}],
+    [{b:-1,d:1,o:-1,c:{x:51.0,t:-51.0}},{b:0,d:1000,o:1,c:{x:-51.0,t:51.0},e:{o:7,c:{x:7,t:7}}}],
+    [{b:-1,d:1,o:-1,sX:9,sY:9},{b:1000,d:1000,o:1,sX:-9,sY:-9,e:{sX:2,sY:2}}],
+    [{b:-1,d:1,o:-1,r:-180,sX:9,sY:9},{b:2000,d:1000,o:1,r:180,sX:-9,sY:-9,e:{r:2,sX:2,sY:2}}],
+    [{b:-1,d:1,o:-1},{b:3000,d:2000,y:180,o:1,e:{y:16}}],
+    [{b:-1,d:1,o:-1,r:-150},{b:7500,d:1600,o:1,r:150,e:{r:3}}],
+    [{b:10000,d:2000,x:-379,e:{x:7}}],
+    [{b:10000,d:2000,x:-379,e:{x:7}}],
+    [{b:-1,d:1,o:-1,r:288,sX:9,sY:9},{b:9100,d:900,x:-1400,y:-660,o:1,r:-288,sX:-9,sY:-9,e:{r:6}},{b:10000,d:1600,x:-200,o:-1,e:{x:16}}]
+    ];
+
+    var jssor_1_options = {
+      $AutoPlay: true,
+      $SlideDuration: 800,
+      $SlideEasing: $Jease$.$OutQuint,
+      $CaptionSliderOptions: {
+        $Class: $JssorCaptionSlideo$,
+        $Transitions: jssor_1_SlideoTransitions
+      },
+      $ArrowNavigatorOptions: {
+        $Class: $JssorArrowNavigator$
+      },
+      $BulletNavigatorOptions: {
+        $Class: $JssorBulletNavigator$
+      }
+    };
+
+    var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+          //responsive code begin
+          //you can remove responsive code if you don't want the slider scales while window resizing
+          function ScaleSlider() {
+            var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+            if (refSize) {
+              refSize = Math.min(refSize, 1920);
+              jssor_1_slider.$ScaleWidth(refSize);
+            }
+            else {
+              window.setTimeout(ScaleSlider, 30);
+            }
+          }
+          ScaleSlider();
+          $(window).bind("load", ScaleSlider);
+          $(window).bind("resize", ScaleSlider);
+          $(window).bind("orientationchange", ScaleSlider);
+          //responsive code end
+        });
+</script>   
+</div><!-- end container -->
+</div><!-- end hbg -->
+</template>
+
+<template name="home">
+  <div class="hbg"> 
+    <div class="container">
+      <section id="slider" style="padding-bottom: 30px;">
+        <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1300px; height: 500px; overflow: hidden; visibility: hidden;">
+          <!-- Loading Screen -->
+
+          <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1300px; height: 500px; overflow: hidden;">
+            {{#each getbanner}}
+            <div data-p="225.00" style="display: none;">
+              <a href="{{url}}">
+                <img data-u="image" src="{{getImg imageId}}" alt="slide"/>
+              </a> 
+            </div>
+            {{/each}}
+          </div>
+          <!-- Bullet Navigator -->
+          <div data-u="navigator" class="jssorb05" style="bottom:16px;right:16px;" data-autocenter="1">
+
+            <div data-u="prototype" style="width:30px;height:35px;"></div>
+          </div>
+          <!-- Arrow Navigator -->
+          <span data-u="arrowleft" class="jssora22l" style="top:0px;left:12px;width:40px;height:58px;" data-autocenter="2"></span>
+          <span data-u="arrowright" class="jssora22r" style="top:0px;right:12px;width:40px;height:58px;" data-autocenter="2"></span>
+        </div>
+      </section><!--end section slider-->
+      <!-- Quick Link -->
+      <div class="row">
+          <div class="blog-quicklink">
+            {{{getQuickLink}}}
+            
+          </div>
+      </div>
+      <div class="row">
+       
+          <h1 class="text-center h1">News</h1>
+          <div class="news-home">
+            <ul class="list-inline">
+              {{{ newsBlockProducts}}}
+              <li class="col-md-6 col-xs-12">
+                <div class="advertise-news">
+              <!--<img src="images/banner-news.png" class="img-responsive">-->
+                <div class="img-hover item-type-line">
+                  {{#with newsBlockBanners "2"}}
+                  <a target="_blank" href="{{link}}" class="item-hover">
+                    <div class="item-info">
+                      <div class="headline">{{name}}</div>
+                      <div class="date">Date</div>
+                    </div>
+                    <div class="mask"></div>
+                  </a>
+                  <div class="item-img">
+                    <img class="img-responsive" style="width:100%" alt="" src="{{image}}">
+                  </div>
+                  {{/with}}
+                </div>   
+              </div> 
+              </li>
+            </ul>
+          </div> 
+          <div class="advertise">
+            <div class="col-md-4 col-xs-4">
+              <div class="img-hover-sm item-type-line-sm">
+                 {{#with newsBlockBanners "3"}}
+                  <a target="_blank" href="{{link}}" class="item-hover-sm">
+                    <div class="item-info-sm">
+                      <div class="headline-sm">{{name}}</div>
+                      <div class="date-sm">Date</div>
+                    </div>
+                    <div class="mask-sm"></div>
+                  </a>
+                  <div class="item-img-sm"><img class="img-responsive" alt="" src="{{image}}"></div>
+                {{/with}}
+              </div>        
+            </div>
+            <div class="col-md-8 col-xs-8 nopad-right">
+              <div class="img-hover-lg item-type-line-lg">
+                {{#with newsBlockBanners "4"}}
+                  <a target="_blank" href="{{link}}" class="item-hover-lg">
+                    <div class="item-info-lg">
+                      <div class="headline-lg">{{name}}</div>
+                      <div class="date-lg">Date</div>
+                    </div>
+                    <div class="mask-lg"></div>
+                  </a>
+                  <div class="item-img-lg">
+                    <img class="img-responsive" alt="" src="{{image}}">
+                  </div>
+                {{/with}}
+              </div>
+            </div>  
+          </div>    
+        
+      </div>
+      <!-- CLIENT SLIDER STARTS-->
+      <div class="row">
+        {{#with Deal}}
+          <div class="col-md-12 col-xs-12">
+            <h1 class="text-center h1">DEAL OF THE WEEK</h1>
+            <div class="carousel slide clients-carousel" id="clients-slider">
+                <div class="carousel-inner">
+                  <!--{{#each products}}-->
+                      {{{oneSlide1 products}}}
+                </div>
+                <a data-slide="prev" href="#clients-slider" class="left carousel-control"></a>
+                <a data-slide="next" href="#clients-slider" class="right carousel-control"></a>
+            </div>
+          </div>
+        {{/with}}
+      </div>
+      <div class="row">
+          <div class="lifestyle text-center">
+            <div class="col-md-12 col-xs-12">
+              <h1 class="text-center h1">LIFESTYLE</h1>
+            </div>
+            {{#each lifeStyleBanners}}
+              <div class="col-md-4 col-xs-12">
+                
+                  <a href="{{link}}"><img class="img-responsive" style="height:200px" src="{{image}}"></a>
+              
+              </div>
+            {{/each }}
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12 col-xs-12">
+            <h1 class="text-center h1">PINTEREST</h1>
+            <a data-pin-do="embedUser" data-pin-board-width="860" data-pin-scale-height="240" data-pin-scale-width="115" href="https://www.pinterest.com/safirperfumery/safir-favorite-looks/"></a>
+          </div>
+      </div>
+    
+<!-- end -->    
+<script>
+  var numberslide=5; 
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    numberslide=3;
+  }
+  var swiper = new Swiper('.swiper-container3', {
+    nextButton: '#swiper4-next',
+    prevButton: '#swiper4-prev',
+    slidesPerView: numberslide,
+    loop:true,
+    paginationClickable: true,
+    spaceBetween: 5
+          //autoplay: 5000
+        });
+</script>
+<!--new slider-->
+<script>
+  jQuery(document).ready(function ($) {
+
+    var jssor_1_SlideoTransitions = [
+    [{b:5500,d:3000,o:-1,r:240,e:{r:2}}],
+    [{b:-1,d:1,o:-1,c:{x:51.0,t:-51.0}},{b:0,d:1000,o:1,c:{x:-51.0,t:51.0},e:{o:7,c:{x:7,t:7}}}],
+    [{b:-1,d:1,o:-1,sX:9,sY:9},{b:1000,d:1000,o:1,sX:-9,sY:-9,e:{sX:2,sY:2}}],
+    [{b:-1,d:1,o:-1,r:-180,sX:9,sY:9},{b:2000,d:1000,o:1,r:180,sX:-9,sY:-9,e:{r:2,sX:2,sY:2}}],
+    [{b:-1,d:1,o:-1},{b:3000,d:2000,y:180,o:1,e:{y:16}}],
+    [{b:-1,d:1,o:-1,r:-150},{b:7500,d:1600,o:1,r:150,e:{r:3}}],
+    [{b:10000,d:2000,x:-379,e:{x:7}}],
+    [{b:10000,d:2000,x:-379,e:{x:7}}],
+    [{b:-1,d:1,o:-1,r:288,sX:9,sY:9},{b:9100,d:900,x:-1400,y:-660,o:1,r:-288,sX:-9,sY:-9,e:{r:6}},{b:10000,d:1600,x:-200,o:-1,e:{x:16}}]
+    ];
+
+    var jssor_1_options = {
+      $AutoPlay: true,
+      $SlideDuration: 800,
+      $SlideEasing: $Jease$.$OutQuint,
+      $CaptionSliderOptions: {
+        $Class: $JssorCaptionSlideo$,
+        $Transitions: jssor_1_SlideoTransitions
+      },
+      $ArrowNavigatorOptions: {
+        $Class: $JssorArrowNavigator$
+      },
+      $BulletNavigatorOptions: {
+        $Class: $JssorBulletNavigator$
+      }
+    };
+
+    var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+          //responsive code begin
+          //you can remove responsive code if you don't want the slider scales while window resizing
+          function ScaleSlider() {
+            var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+            if (refSize) {
+              refSize = Math.min(refSize, 1920);
+              jssor_1_slider.$ScaleWidth(refSize);
+            }
+            else {
+              window.setTimeout(ScaleSlider, 30);
+            }
+          }
+          ScaleSlider();
+          $(window).bind("load", ScaleSlider);
+          $(window).bind("resize", ScaleSlider);
+          $(window).bind("orientationchange", ScaleSlider);
+          //responsive code end
+        });
+</script>   
+</div><!-- end container -->
+</div><!-- end hbg -->
+<div class="modal" id="quickView" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-top:30px;">
+  {{#with getSelectedProduct}}
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="width: 150%; margin: 0px 0px 0px -150px !important;">
+      <div class="modal-content">
+        <div class="modal-header" style="background:#000; padding:0px;" >
+          <button type="button" class="close" data-dismiss="modal"><img src="/images/pop_cancel.png"></button>
+        </div>
+        
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-5">
+              <img  src="{{getImgForProduct _id}}" width="300px" height="300px" class="center-block">
+            </div>
+            <div class="col-md-7">
+              <div class="quick-detail">
+                <h2 class="title-quick-view">{{title}}</h2>
+                <p class="arab-font"> {{{description}}} </p>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <span>Qty</span> &nbsp;
+                  <select class="select-view" id="qty">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <a id="closeModal" href="/details/{{slug title}}"><button class="btn-moredetail-view left">{{_"MORE DETAIL"}}</button></a>
+                </div>
+
+                <div class="col-md-6">
+
+                  <h3 class="price-view" style="font-family: 'Nazanin Bold';">{{#with getListprice oldId}}{{price}}{{/with}}<span>ریال</span></h3>
+
+                </div>
+                <div class="col-md-6">
+                  <button class="btn-add-tocard left" id="addtocart">{{_"ADD TO CARD"}}</button>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <div class="col-md-12">
+            <hr style="border:1px solid #000;">
+          </div>
+        </div>
+        <div class="modal-footer center-block" style="border:none">
+          <div class="col-md-12">
+            <h4 class="pull-left">{{_"Related products"}}</h4>
+          </div>
+          
+          <div class="row">
+            
+                  {{>recommendation}}
+               
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
+  {{/with}}
+  <script>
+    $('.modal-backdrop').remove();
+  </script>
+</div>
+<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+<script src="http://snapwidget.com/js/snapwidget.js"></script>
+</template>

@@ -1,0 +1,88 @@
+<template name="quickview">
+<div class="modal" id="quickView" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top:30px;">
+		
+{{#with getSelectedProduct}}
+<div class="modal-dialog" role="document">
+	<div class="modal-content" style="width: 150%; margin: 0px 0px 0px -150px !important;">
+			  <div class="modal-content">
+				<div class="modal-header" style="background:#000; padding:0px;" >
+				  <button type="button" class="close" data-dismiss="modal"><img src="/images/pop_cancel.png"></button>
+				</div>
+				
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-5">
+							<span class='zoom' id='ex1'>
+								<img id="hoverZoom" width="250" height="250" class="img_principle" src="{{getImgForProduct _id}}" alt="{{title}}"/>		
+							</span>	
+							<script>
+								$(document).ready(function(){
+									$('#ex1').zoom('{{getFirstImgProduct _id}}');
+									$('#ex2').zoom({ on:'grab' });
+									$('#ex3').zoom({ on:'click' });			 
+									$('#ex4').zoom({ on:'toggle' });
+								});
+							</script>
+						</div>
+						<div class="col-md-7">
+							<div class="quick-detail">
+								<h2 class="title-quick-view">{{title}}</h2>
+								<p class="arab-font">{{{description}}}</p>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<span>Qty</span> &nbsp;
+									<select class="select-view" id="qty">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									</select>
+								</div>
+								<div class="col-md-6">
+                                  <a href="/details/{{slug title}}"><button class="btn-moredetail-view left">{{_"MORE DETAIL"}}</button></a>
+								</div>
+
+								<div class="col-md-6">
+									  <a href="/details/{{slug title}}" style="font-weight:bold;color:#000;" class="price{{oldId}}">
+							            <h3 id="quick_view_price" style="font-weight:bold;color:#000;">{{getAttribprice oldId}}</h3>
+							          </a>
+								</div>
+								<div class="col-md-6">
+                                   <button class="btn-add-tocard left" id="addtocart">{{_ "ADD TO CARD"}}</button>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div class="col-md-12">
+					   <hr style="border:1px solid #000;">
+					</div>
+				</div>
+
+				<div class="modal-footer center-block" style="border:none">
+					<div class="col-md-12">
+                       <h4 class="pull-left">Related products</h4>
+					</div>
+					
+					<div class="row">
+						<ul class="list-inline">
+							<li width="100"><a href="">
+									<div class="hold_product_detail">
+									<div class="row"></div> 
+									{{>recommendation}}
+								</div>
+							</a></li>
+						</ul>
+					</div>
+				</div>
+			  </div>	
+			</div>
+			</div>
+			{{/with}}
+		
+			<script>
+			$('.modal-backdrop').remove();
+			</script>
+		</div>
+</template>

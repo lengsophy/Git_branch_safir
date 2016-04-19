@@ -1,0 +1,57 @@
+<template name= "recaporder">
+<style type="text/css">
+			.modal-backdrop.in{
+				display: none;
+			}
+</style>
+	<section class="hold-checkout">
+		<div class="container">
+			<div class="row">	
+				<span class="pull-right"><strong>{{_ "Order ID"}}:</strong> {{orderId}}</span>
+			</div>
+			<div class="row">	
+				<span class="pull-right"><strong>{{_ "User name"}}:</strong>{{#with getprofile}}{{profile.firstname}} {{profile.lastname}}{{/with}}</span>			
+			</div>
+			<div class="row">	
+				<span class="pull-right"><strong>{{_ "Total"}}:</strong> {{total}}</span>
+			</div>
+			<div class="row">	
+				<span class="pull-right"><strong>{{_ "Status"}}:</strong> {{status}}</span>
+			</div>
+			<div class="row">	
+				<span class="pull-right"><strong>{{_ "Date"}}:</strong> {{convertMsTimeStamp getExplicitDate}}</span>
+			</div>
+				<div class="col-sm-9">
+					{{#each items}}
+					<div class="well">
+						<div class="row">
+						{{#with getProductInfoDetails id_product}}
+						<div class="col-sm-2">
+							<img src="{{getImgForProduct _id}}" class="img-responsive img-circle img-circle-border-cart">
+						</div>
+						{{/with}}
+						<div class="col-sm-5">
+							{{#with getProductInfoDetails id_product}}
+							<h3 class="title-cart">{{title}}</h3>
+							{{/with}}
+							<div class="col-sm-6">
+								<div class="hold-add-cart">
+									<div class="row">
+										<span class="pull-left">{{_ "Subtotal"}}:</span>
+										<span class="pull-right"> {{subtotal}}  تومان</span>
+									</div>
+									<div class="row">
+										<span class="pull-left">{{_ "Quantity"}}:</span>
+										<span class="pull-right"> {{qty}}</span>							
+									</div>	
+								</div>
+							</div>
+						</div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					{{/each}}
+				</div>			
+			</div>
+		</section>	
+</template>

@@ -1,0 +1,26 @@
+h1.h1{
+    font-weight: 700;
+    margin: 1em 0px;
+}
+/* background svg */
+.bg_home{
+	background:url("../images/bg_home.svg") no-repeat;
+	height:1300px;
+}
+.img-circle-border{
+	border:8px solid #000;
+}
+.btn-Begins{
+	/*background:url('../images/btn-quiz1.png')no-repeat;*/
+	background: rgba(0, 0, 0, 0) url("../images/btn-quiz1.png") no-repeat scroll 0 0 / 100% 100%;
+	background-size:100% 100%;
+	border-radius: 4px;
+	font-weight:bold;
+	font-size:20px;
+	padding:10px 35px;
+	margin-bottom:15px;
+}
+.btn:active{
+	background:#d47aaf;
+	color:#333333;
+}

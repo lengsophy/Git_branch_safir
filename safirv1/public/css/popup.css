@@ -1,0 +1,96 @@
+.section .container .modal-dialog .bg-instagram{
+	background: url('/images/background-instagram.png');
+	background-size: 100% 100%;
+	overflow:hidden;
+	height:350px;
+}
+.section .container .modal-dialog .modal-content{
+	background: url('/images/background-instagram.png');
+	background-size: 100% 100%;
+	overflow:hidden;
+	height:auto;
+}
+.header-popup{
+	border: none;
+	padding: 10px 0px;
+}
+.modal-body .popup{
+	margin:70px 0px;
+}
+.modal-dialog.bg-modal{
+	margin-top:80px;
+	margin-bottom: 150px;
+}
+.btn-instagram{
+	 background:#4d87b7;
+	 margin-bottom:30px;
+	 color:#fff;
+	 font-weight:bold;
+	 border-radius: 4px;
+	 margin-top:0px;
+}
+.btn-instagram:hover{
+	 background:#4d87b7;
+	 margin-bottom:30px;
+	 color:#fff;
+	 font-weight:bold;
+	 border-radius: 4px;
+	 margin-top:0px;
+}
+.ask-me{
+	margin-top:30px;
+}
+.img-insta{
+	margin:15px 0px;
+}
+a label{
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+}
+.popup .form-group label{
+	color: #fff;
+}
+
+.popup .form-group input{
+	color: #000;
+	background: #fff;
+	border:1px solid #fff;
+
+}
+.modal-open-insta{
+	background:#333;
+	opacity:0.3;
+}
+
+.modal-backdrop-insta {
+    /*position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #000;
+    opacity: 0.5;*/
+}
+.close-instagram{
+	margin-top:-88px;
+}
+.close-instagram:hover{
+	cursor: pointer;
+}
+.close-instagram-infor{
+	margin-right: -11px;
+    margin-top: -6px;
+}
+.close-instagram-infor:hover{
+	cursor: pointer;
+}
+.instagram{
+	background-color: blue;
+}
+.content-modal{
+    background-color: #fff;
+    background-clip: padding-box;
+    outline: 0;
+}

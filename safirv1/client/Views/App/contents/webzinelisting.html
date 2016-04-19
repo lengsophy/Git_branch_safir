@@ -1,0 +1,167 @@
+<template name ="webzinelisting"> 
+	<style type="text/css">
+		a:hover{
+			text-decoration: none !important;
+			color: black;
+		}
+	</style>
+	<section class="wrapper-first-con" style="padding-bottom: 50px;">
+		<div class="container">
+			<div class="col-md-12">
+				<!-- lightSlider -->
+				<section id="slider" style="padding-bottom: 30px;">
+					<div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1300px; height: 500px; overflow: hidden; visibility: hidden;">
+						<!-- Loading Screen -->
+						<div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1300px; height: 500px; overflow: hidden;">
+							{{#each getbannerwebzine}}
+							<div data-p="225.00" style="display: none;">
+								<a href="{{url}}">
+									<img data-u="image" src="{{getImg imageId}}" class="img-responsive" alt="slide" width="250" height="220"/>
+								</a> 
+							</div>
+							{{/each}}
+						</div>
+						<!-- Bullet Navigator -->
+						<div data-u="navigator" class="jssorb05" style="bottom:16px;right:16px;" data-autocenter="1">
+
+							<div data-u="prototype" style="width:30px;height:35px;"></div>
+						</div>
+						<!-- Arrow Navigator -->
+						<span data-u="arrowleft" class="jssora22l" style="top:0px;left:12px;width:40px;height:58px;" data-autocenter="2"></span>
+						<span data-u="arrowright" class="jssora22r" style="top:0px;right:12px;width:40px;height:58px;" data-autocenter="2"></span>
+					</div>
+				</section><!--end section slider-->
+	
+				{{#each webzinelists}}
+				{{#if odd number}}
+				<div class="row spacetop-webzine style_featured">
+					<div class="col-lg-12 wrapper-lg-border">
+						<div class="col-md-6">
+							<a href="/webzinedetails/{{slug title}}">
+								{{#with getFirstImgContent _id}}
+								<img src="{{getImg this}}" class="img-responsive" width="250" height="220" alt="{{title}}">
+								{{/with}}	
+							</a>
+						</div>
+						<div class="col-md-6">
+							<div class="wrap-text-webzine">
+								<a href="/webzinedetails/{{slug title}}"> <h2 class="webzine-title">{{title}}</h2></a>
+								<p class="webzine-text">{{{smaller content 20}}}</p>
+							</div>
+							<!--<div class="col-sm-6">
+								<div class="wrapper-icon">
+									<a href=""> <i class="fa fa-facebook"></i> </a>
+								</div>
+								<div class="wrapper-icon">
+									<a href=""> <i class="fa fa-twitter"></i> </a>
+								</div>
+							</div>-->
+
+							<div class="col-sm-6">
+								<div class="text-right">
+									<p class="cate-webzine"><a href="/category/{{slug getCatergoryName category}}" style="color:black">{{getCatergoryName category}}</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end webzine_lg -->
+				{{else}}
+				<!-- webzine_sm-->
+				<div class="style_featured">
+					<div class="col-md-6 wrapper-sm-border">
+						<div class="col-sm-6">
+							<a href="/webzinedetails/{{slug title}}">
+								{{#with getFirstImgContent _id}}
+								<img src="{{getImg this}}" class="img-responsive" alt="{{title}}" width="250" height="220">
+								{{/with}}
+
+							</a>
+						</div>
+
+						<div class="col-sm-6">
+							<div class="wrap-text-webzine-sm">
+								<a href="/webzinedetails/{{slug title}}"><h3 class="webzine-title-sm">{{title}}</h3></a>
+								<p class="webzine-text-sm">{{{smaller content 20}}}</p>
+							</div>
+
+							<!--<div class="col-xs-6">
+								<div class="wrapper-icon">
+									<a href=""> <i class="fa fa-facebook"></i> </a>
+								</div>
+								<div class="wrapper-icon">
+									<a href=""> <i class="fa fa-twitter"></i> </a>
+								</div>
+							</div>-->
+
+							<div class="col-xs-6">
+								<div class="text-right">
+									<p class="cate-webzine"><a href="/category/{{slug getCatergoryName category}}" style="color:black">{{getCatergoryName category}}</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- End webzin sm-->
+				{{/if}}
+				{{/each}}
+				<!-- end webzine_sm -->
+				<!--end list webzin-->
+
+
+			</div> 
+		</div>    
+	</section>
+	<script>
+	jQuery(document).ready(function ($) {
+
+		var jssor_1_SlideoTransitions = [
+		[{b:5500,d:3000,o:-1,r:240,e:{r:2}}],
+		[{b:-1,d:1,o:-1,c:{x:51.0,t:-51.0}},{b:0,d:1000,o:1,c:{x:-51.0,t:51.0},e:{o:7,c:{x:7,t:7}}}],
+		[{b:-1,d:1,o:-1,sX:9,sY:9},{b:1000,d:1000,o:1,sX:-9,sY:-9,e:{sX:2,sY:2}}],
+		[{b:-1,d:1,o:-1,r:-180,sX:9,sY:9},{b:2000,d:1000,o:1,r:180,sX:-9,sY:-9,e:{r:2,sX:2,sY:2}}],
+		[{b:-1,d:1,o:-1},{b:3000,d:2000,y:180,o:1,e:{y:16}}],
+		[{b:-1,d:1,o:-1,r:-150},{b:7500,d:1600,o:1,r:150,e:{r:3}}],
+		[{b:10000,d:2000,x:-379,e:{x:7}}],
+		[{b:10000,d:2000,x:-379,e:{x:7}}],
+		[{b:-1,d:1,o:-1,r:288,sX:9,sY:9},{b:9100,d:900,x:-1400,y:-660,o:1,r:-288,sX:-9,sY:-9,e:{r:6}},{b:10000,d:1600,x:-200,o:-1,e:{x:16}}]
+		];
+
+		var jssor_1_options = {
+			$AutoPlay: true,
+			$SlideDuration: 800,
+			$SlideEasing: $Jease$.$OutQuint,
+			$CaptionSliderOptions: {
+				$Class: $JssorCaptionSlideo$,
+				$Transitions: jssor_1_SlideoTransitions
+			},
+			$ArrowNavigatorOptions: {
+				$Class: $JssorArrowNavigator$
+			},
+			$BulletNavigatorOptions: {
+				$Class: $JssorBulletNavigator$
+			}
+		};
+
+		var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+          //responsive code begin
+          //you can remove responsive code if you don't want the slider scales while window resizing
+          function ScaleSlider() {
+          	var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+          	if (refSize) {
+          		refSize = Math.min(refSize, 1920);
+          		jssor_1_slider.$ScaleWidth(refSize);
+          	}
+          	else {
+          		window.setTimeout(ScaleSlider, 30);
+          	}
+          }
+          ScaleSlider();
+          $(window).bind("load", ScaleSlider);
+          $(window).bind("resize", ScaleSlider);
+          $(window).bind("orientationchange", ScaleSlider);
+          //responsive code end
+      });
+</script>   
+</template>

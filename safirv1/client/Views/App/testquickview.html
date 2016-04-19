@@ -1,0 +1,30 @@
+<template name="testquickview">
+	<div class="container">
+		<div class="col-md-4">
+			<div class="thumbnail">
+				<div class="hold-quickview">
+					<a href=""><img src="/images/nocibe.png" alt=""></a>
+					<div class="quickview">
+						<button type="button" class="btn btn-quickview center-block btn-block">Quick View</button>
+					</div>
+				</div>
+				<div class="caption">
+					<p class="title"><a href="#">COVERGIRL QUEEN COLLECTION LASTING MATTE PRESSED POWDER</a></p>
+					<div class="rating">
+						<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span><span class="glyphicon glyphicon-star-empty"></span>
+						<!--<span class="views">599 view</span>-->
+					</div>
+					<p><a href="#" class="price pull-left">900000 $</a> <a href="#" class="heart pull-right"><span class="fa fa-heart fa-heart-full"></span></a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+	$(document).on('mouseenter', '.hold-quickview', function () {
+		$(this).find(":button").show();
+	}).on('mouseleave', '.hold-quickview', function () {
+		$(this).find(":button").hide();
+	});
+	</script>
+	
+</template>

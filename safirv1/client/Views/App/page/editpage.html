@@ -1,0 +1,84 @@
+<template name="editpages">
+	<div id="wrapper">
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Update Location
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Dashboard
+                            </li>
+                        </ol>
+                    </div>
+					<div class="col-xs-12 col-sm-6 col-md-8">
+						<form role="form" class="form-horizontal">	
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="title">Name <span style="color:red">*</span></label>
+								<div class="col-sm-9">
+									<input type="text" value="{{name}}" id="name" placeholder="Name" required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="location">Type <span style="color:red">*</span></label>
+								<div class="col-sm-9">
+									<select class="form-control" id="type" required>
+										<option value="">Choose type</option>
+										<option value="Quicklinks">Quicklinks</option>
+										<option value="News">News</option>
+										<option value="Deal">Deal of the Week</option>
+										<option value="Lifestyle">Lifestyle</option>
+									 </select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="desc">Image <span style="color:red">*</span></label>
+								<div class="col-sm-9">
+									<input type="file" name="image" id="image" placeholder="image" required>
+									<input type="hidden" value="{{image_id}}" id="oldImage">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="title">Link <span style="color:red">*</span></label>
+								<div class="col-sm-9">
+									<input type="text" value="{{link}}" id="link" placeholder="Link" required>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="title">Order <span style="color:red"></span></label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" value="{{order}}" name="order" id="order" placeholder="Order Number" required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="title">Product <span style="color:red"></span></label>
+								<div class="col-sm-7" style="position:relative">
+									<input type="text" class="form-control" name="product" id="product" placeholder="Search Product" required>
+									<ul id="result" class="result-pro"></ul>
+								</div>
+								<div class="col-md-2">
+									<button type="button" id="addProduct" style="padding:5px">Add</button>
+								</div>
+							</div>
+							<div class="form-group">
+								<ul class="product-list">{{{listpro}}}</ul>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-3 col-sm-2">
+									<input type="button" value="Edit" id="edit" class="btn btn-lg">
+								</div>
+							</div>
+						</form>
+						
+					</div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+</template>

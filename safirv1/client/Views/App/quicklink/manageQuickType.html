@@ -1,0 +1,60 @@
+<template name="manageQuicklink">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<form role="form" class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3" for="title">Title<span style="color:red">*</span></label>
+						<div class="col-sm-9">
+							<input type="title" name="title" id="title" class="form-control input-sm" placeholder="Title" value="{{title}}"  >
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-3" for="title">Link<span style="color:red">*</span></label>
+						<div class="col-sm-9">
+							<input type="title" name="link" id="link" class="form-control input-sm" placeholder="Link" value="{{link}}"  >
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-12" align="center">
+							{{#if _id}}
+							<button class="btn btn-primary" id="addquicklink">UPDATE</button>
+							{{else}}
+							<button class="btn btn-primary" id="addquicklink">ADD</button>
+							{{/if}}
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-6">
+				<table class="table table-bordered">
+				    <thead>
+				      <tr>
+				        <th>Title</th>
+				        <th>Link</th>
+				        <th  colspan="2">Action</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				    	{{#each getquicklink}}
+				      <tr>
+				        <td>{{title}}</td>
+				        <td>{{link}}</td>
+				        <td>
+				        	<a class="glyphicon glyphicon-trash center-block" href="" id="remove"></a>
+				        	
+				        </td>
+				        <td>
+				        	<a class="glyphicon glyphicon-edit center-block" href="/editQuicklink/{{_id}}"></a>
+				        </td>
+						
+				        
+				      </tr>
+				      {{/each}}
+				      
+				    </tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</template>

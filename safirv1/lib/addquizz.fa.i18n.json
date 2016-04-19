@@ -1,0 +1,21 @@
+{
+	"ADD QUIZZ":"افزودن امتحان",
+	"FORM QUIZZ":"امتحان فرم",
+	"Back":"بازگشت",
+	"Quizz_Name":"نام امتحان",
+	"Quizz_Type":"نوع مسابقه",
+	"Select Type":"انتخاب نوع",
+	"Eye":"چشم",
+	"Skin":"پوست",
+	"Question":"سوال",
+	"Select Parent_Tag":"انتخاب برچسب پدر و مادر",
+	"Question_Image":"درخواست تصویر",
+	"Answer_Image":"پاسخ تصویر",
+	"add question":"اضافه درخواست",
+	"add answer":"اضافه کردن پاسخ",
+	"Answer":"پاسخ",
+	"Answer_Tag":"پاسخ برچسب",
+	"answer":"پاسخ",
+	"Submit":"ارسال"
+
+}
